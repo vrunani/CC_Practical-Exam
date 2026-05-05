@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cloud Computing Study Hub ☁️</title>
+<title>Cloud Computing Study Hub</title>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -24,8 +24,6 @@
     --blue-pale: #eff6ff;
     --yellow: #fbbf24;
     --yellow-pale: #fffbeb;
-    --teal: #2dd4bf;
-    --teal-pale: #f0fdfa;
     --bg: #fdf2f8;
     --card: #ffffff;
     --text: #2d1b3d;
@@ -34,7 +32,9 @@
     --shadow: 0 4px 24px rgba(167,139,250,0.13);
     --shadow-hover: 0 8px 32px rgba(167,139,250,0.22);
   }
+
   * { margin: 0; padding: 0; box-sizing: border-box; }
+
   body {
     font-family: 'Nunito', sans-serif;
     background: var(--bg);
@@ -44,11 +44,13 @@
                       radial-gradient(circle at 85% 80%, #ede9fe 0%, transparent 40%),
                       radial-gradient(circle at 50% 50%, #ecfdf5 0%, transparent 60%);
   }
+
   header {
     text-align: center;
     padding: 2.5rem 1rem 1.5rem;
     position: relative;
   }
+
   .header-badge {
     display: inline-block;
     background: linear-gradient(135deg, var(--pink), var(--purple));
@@ -61,6 +63,7 @@
     border-radius: 100px;
     margin-bottom: 1rem;
   }
+
   header h1 {
     font-family: 'Quicksand', sans-serif;
     font-size: 2.8rem;
@@ -71,52 +74,70 @@
     background-clip: text;
     margin-bottom: 0.4rem;
   }
-  header p { color: var(--text-muted); font-size: 1.05rem; font-weight: 500; }
-  .floating-stars { position: absolute; font-size: 1.2rem; pointer-events: none; animation: float 3s ease-in-out infinite; }
+
+  header p {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    font-weight: 500;
+  }
+
+  .floating-stars {
+    position: absolute;
+    font-size: 1.2rem;
+    pointer-events: none;
+    animation: float 3s ease-in-out infinite;
+  }
+  .floating-stars:nth-child(1) { top: 20px; left: 10%; animation-delay: 0s; }
+  .floating-stars:nth-child(2) { top: 40px; right: 12%; animation-delay: 1s; }
+  .floating-stars:nth-child(3) { bottom: 10px; left: 25%; animation-delay: 0.5s; }
+
   @keyframes float {
     0%, 100% { transform: translateY(0px) rotate(0deg); }
     50% { transform: translateY(-8px) rotate(10deg); }
   }
 
-  /* TABS */
   .tabs-nav {
     display: flex;
     justify-content: center;
-    gap: 10px;
+    gap: 12px;
     padding: 0 1rem 2rem;
     flex-wrap: wrap;
   }
+
   .tab-btn {
     font-family: 'Nunito', sans-serif;
-    font-size: 0.88rem;
+    font-size: 0.95rem;
     font-weight: 700;
-    padding: 9px 18px;
+    padding: 10px 24px;
     border-radius: 100px;
     border: 2px solid transparent;
     cursor: pointer;
     transition: all 0.25s ease;
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
     background: white;
     color: var(--text-muted);
     box-shadow: 0 2px 12px rgba(0,0,0,0.07);
   }
-  .tab-btn.active[data-tab="todo"]    { background: linear-gradient(135deg, #ff6b9d, #fb7185); color: white; box-shadow: 0 4px 16px rgba(255,107,157,0.35); }
-  .tab-btn.active[data-tab="qa"]      { background: linear-gradient(135deg, #a78bfa, #818cf8); color: white; box-shadow: 0 4px 16px rgba(167,139,250,0.35); }
-  .tab-btn.active[data-tab="addqa"]   { background: linear-gradient(135deg, #fb923c, #f59e0b); color: white; box-shadow: 0 4px 16px rgba(251,146,60,0.35); }
-  .tab-btn.active[data-tab="flashcard"]{ background: linear-gradient(135deg, #34d399, #10b981); color: white; box-shadow: 0 4px 16px rgba(52,211,153,0.35); }
-  .tab-btn.active[data-tab="revision"] { background: linear-gradient(135deg, #2dd4bf, #0891b2); color: white; box-shadow: 0 4px 16px rgba(45,212,191,0.35); }
+
+  .tab-btn .tab-icon { font-size: 1.1rem; }
+
+  .tab-btn.active[data-tab="todo"] { background: linear-gradient(135deg, #ff6b9d, #fb7185); color: white; box-shadow: 0 4px 16px rgba(255,107,157,0.35); }
+  .tab-btn.active[data-tab="qa"] { background: linear-gradient(135deg, #a78bfa, #818cf8); color: white; box-shadow: 0 4px 16px rgba(167,139,250,0.35); }
+  .tab-btn.active[data-tab="flashcard"] { background: linear-gradient(135deg, #34d399, #10b981); color: white; box-shadow: 0 4px 16px rgba(52,211,153,0.35); }
+
   .tab-btn:hover:not(.active) { border-color: var(--purple-light); background: var(--purple-pale); color: var(--purple); }
 
   .tab-content { display: none; padding: 0 1rem 3rem; max-width: 900px; margin: 0 auto; }
   .tab-content.active { display: block; animation: fadeIn 0.35s ease; }
+
   @keyframes fadeIn {
     from { opacity: 0; transform: translateY(12px); }
     to { opacity: 1; transform: translateY(0); }
   }
 
-  /* TODO */
+  /* ── TODO TAB ── */
   .todo-section {
     background: white;
     border-radius: 20px;
@@ -125,6 +146,7 @@
     box-shadow: var(--shadow);
     border: 1.5px solid var(--border);
   }
+
   .todo-section-title {
     display: flex;
     align-items: center;
@@ -134,8 +156,8 @@
     margin-bottom: 1rem;
     padding-bottom: 0.75rem;
     border-bottom: 2px dashed var(--border);
-    flex-wrap: wrap;
   }
+
   .section-badge {
     display: inline-block;
     padding: 4px 14px;
@@ -144,6 +166,7 @@
     font-weight: 700;
     letter-spacing: 0.5px;
   }
+
   .todo-item {
     display: flex;
     align-items: flex-start;
@@ -153,9 +176,12 @@
     transition: all 0.2s;
   }
   .todo-item:last-child { border-bottom: none; }
+
   .todo-item input[type="checkbox"] {
     appearance: none;
-    width: 22px; height: 22px; min-width: 22px;
+    width: 22px;
+    height: 22px;
+    min-width: 22px;
     border-radius: 8px;
     border: 2px solid var(--purple-light);
     cursor: pointer;
@@ -176,16 +202,37 @@
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
   }
+
   .todo-label {
-    font-size: 0.95rem; font-weight: 600; color: var(--text);
-    line-height: 1.5; cursor: pointer; transition: all 0.2s;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.5;
+    cursor: pointer;
+    transition: all 0.2s;
   }
-  .todo-item input:checked ~ .todo-label { color: var(--text-muted); text-decoration: line-through; }
-  .progress-bar-wrap { background: var(--purple-pale); border-radius: 100px; height: 8px; margin: 0.75rem 0 0.4rem; overflow: hidden; }
-  .progress-bar-fill { height: 100%; border-radius: 100px; background: linear-gradient(90deg, var(--pink), var(--purple)); transition: width 0.4s ease; }
+
+  .todo-item input:checked ~ .todo-label {
+    color: var(--text-muted);
+    text-decoration: line-through;
+  }
+
+  .progress-bar-wrap {
+    background: var(--purple-pale);
+    border-radius: 100px;
+    height: 8px;
+    margin: 0.75rem 0 0.4rem;
+    overflow: hidden;
+  }
+  .progress-bar-fill {
+    height: 100%;
+    border-radius: 100px;
+    background: linear-gradient(90deg, var(--pink), var(--purple));
+    transition: width 0.4s ease;
+  }
   .progress-label { font-size: 0.8rem; color: var(--text-muted); font-weight: 600; }
 
-  /* Q&A */
+  /* ── Q&A TAB ── */
   .qa-section-title {
     font-size: 0.85rem;
     font-weight: 800;
@@ -197,6 +244,7 @@
     align-items: center;
     gap: 8px;
   }
+
   .qa-item {
     background: white;
     border-radius: 16px;
@@ -207,6 +255,7 @@
     transition: box-shadow 0.2s;
   }
   .qa-item:hover { box-shadow: var(--shadow-hover); }
+
   .qa-question {
     display: flex;
     align-items: center;
@@ -216,22 +265,48 @@
     gap: 12px;
     user-select: none;
   }
-  .qa-q-text { font-size: 0.97rem; font-weight: 700; color: var(--text); flex: 1; line-height: 1.5; }
-  .qa-arrow {
-    width: 28px; height: 28px;
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    background: var(--purple-pale); color: var(--purple);
-    font-size: 0.85rem; transition: all 0.25s; flex-shrink: 0; font-weight: 800;
+
+  .qa-q-text {
+    font-size: 0.97rem;
+    font-weight: 700;
+    color: var(--text);
+    flex: 1;
+    line-height: 1.5;
   }
+
+  .qa-arrow {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--purple-pale);
+    color: var(--purple);
+    font-size: 0.85rem;
+    transition: all 0.25s;
+    flex-shrink: 0;
+    font-weight: 800;
+  }
+
   .qa-item.open .qa-arrow { transform: rotate(180deg); background: var(--purple); color: white; }
+
   .qa-answer {
-    max-height: 0; overflow: hidden;
+    max-height: 0;
+    overflow: hidden;
     transition: max-height 0.4s ease, padding 0.3s ease;
     padding: 0 1.25rem;
-    font-size: 0.93rem; color: var(--text-muted); line-height: 1.8; font-weight: 500;
+    font-size: 0.93rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+    font-weight: 500;
   }
-  .qa-item.open .qa-answer { max-height: 3000px; padding: 0 1.25rem 1.25rem; }
+
+  .qa-item.open .qa-answer {
+    max-height: 2000px;
+    padding: 0 1.25rem 1.25rem;
+  }
+
   .qa-answer strong { color: var(--purple); font-weight: 700; }
   .qa-answer .highlight-box {
     background: var(--purple-pale);
@@ -241,30 +316,12 @@
     margin: 10px 0;
     font-size: 0.9rem;
   }
-  .qa-answer .highlight-box.mint { background: var(--mint-pale); border-color: var(--mint); }
-  .qa-answer .highlight-box.peach { background: var(--peach-pale); border-color: var(--peach); }
-  .qa-answer .highlight-box.blue { background: var(--blue-pale); border-color: var(--blue); }
   .qa-answer table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 0.88rem; }
   .qa-answer th { background: var(--purple-pale); color: var(--purple); padding: 8px 12px; text-align: left; font-weight: 700; }
   .qa-answer td { padding: 8px 12px; border-bottom: 1px solid var(--border); }
   .qa-answer tr:last-child td { border-bottom: none; }
-  .qa-answer ul, .qa-answer ol { padding-left: 1.2rem; margin: 8px 0; }
-  .qa-answer li { margin-bottom: 4px; }
 
-  /* Additional Q tag */
-  .add-badge {
-    font-size: 0.7rem;
-    font-weight: 800;
-    background: linear-gradient(135deg,#fb923c,#f59e0b);
-    color: white;
-    padding: 2px 10px;
-    border-radius: 100px;
-    margin-left: 8px;
-    letter-spacing: 0.5px;
-    vertical-align: middle;
-  }
-
-  /* FLASHCARDS */
+  /* ── FLASHCARD TAB ── */
   .flashcard-controls {
     display: flex;
     align-items: center;
@@ -273,7 +330,9 @@
     gap: 12px;
     flex-wrap: wrap;
   }
+
   .fc-counter { font-size: 0.9rem; font-weight: 700; color: var(--text-muted); }
+
   .fc-filter {
     font-family: 'Nunito', sans-serif;
     font-size: 0.9rem;
@@ -285,6 +344,7 @@
     color: var(--text);
     cursor: pointer;
   }
+
   .flashcard-wrap {
     perspective: 1000px;
     width: 100%;
@@ -292,17 +352,22 @@
     margin: 0 auto 2rem;
     height: 300px;
   }
+
   .flashcard-inner {
-    width: 100%; height: 100%;
+    width: 100%;
+    height: 100%;
     position: relative;
-    transition: transform 0.6s cubic-bezier(0.4,0,0.2,1);
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
     transform-style: preserve-3d;
     cursor: pointer;
   }
+
   .flashcard-inner.flipped { transform: rotateY(180deg); }
+
   .fc-face {
     position: absolute;
-    width: 100%; height: 100%;
+    width: 100%;
+    height: 100%;
     border-radius: 24px;
     backface-visibility: hidden;
     display: flex;
@@ -313,92 +378,131 @@
     text-align: center;
     box-shadow: 0 8px 32px rgba(167,139,250,0.18);
   }
-  .fc-front { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; }
-  .fc-back  { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; transform: rotateY(180deg); }
-  .fc-face .fc-label { font-size: 0.78rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; opacity: 0.75; margin-bottom: 1rem; }
-  .fc-face .fc-q { font-size: 1.15rem; font-weight: 800; line-height: 1.5; }
-  .fc-face .fc-a { font-size: 0.95rem; font-weight: 600; line-height: 1.7; opacity: 0.95; }
-  .fc-face .fc-hint { font-size: 0.8rem; opacity: 0.6; margin-top: 1.5rem; font-weight: 600; }
-  .fc-nav { display: flex; align-items: center; justify-content: center; gap: 16px; margin-bottom: 2rem; flex-wrap: wrap; }
+
+  .fc-front {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+  }
+
+  .fc-back {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+    transform: rotateY(180deg);
+  }
+
+  .fc-face .fc-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.75;
+    margin-bottom: 1rem;
+  }
+
+  .fc-face .fc-q {
+    font-size: 1.25rem;
+    font-weight: 800;
+    line-height: 1.5;
+  }
+
+  .fc-face .fc-a {
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.7;
+    opacity: 0.95;
+  }
+
+  .fc-face .fc-hint {
+    font-size: 0.8rem;
+    opacity: 0.6;
+    margin-top: 1.5rem;
+    font-weight: 600;
+  }
+
+  .fc-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 2rem;
+  }
+
   .fc-btn {
     font-family: 'Nunito', sans-serif;
-    font-size: 0.95rem; font-weight: 700;
-    padding: 10px 24px; border-radius: 100px; border: none; cursor: pointer; transition: all 0.2s;
+    font-size: 0.95rem;
+    font-weight: 700;
+    padding: 10px 28px;
+    border-radius: 100px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
   }
+
   .fc-btn.prev { background: white; color: var(--purple); border: 2px solid var(--purple-light); }
   .fc-btn.prev:hover { background: var(--purple-pale); }
   .fc-btn.next { background: linear-gradient(135deg, var(--purple), var(--pink)); color: white; box-shadow: 0 4px 16px rgba(167,139,250,0.3); }
-  .fc-btn.next:hover { transform: translateY(-2px); }
+  .fc-btn.next:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(167,139,250,0.4); }
   .fc-btn.shuffle { background: white; color: var(--mint); border: 2px solid var(--mint-light); }
   .fc-btn.shuffle:hover { background: var(--mint-pale); }
-  .fc-dots { display: flex; justify-content: center; gap: 6px; flex-wrap: wrap; max-width: 500px; margin: 0 auto 1.5rem; }
-  .fc-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--purple-light); transition: all 0.2s; }
+
+  .fc-dots {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    flex-wrap: wrap;
+    max-width: 500px;
+    margin: 0 auto 1.5rem;
+  }
+
+  .fc-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--purple-light);
+    transition: all 0.2s;
+  }
   .fc-dot.active { background: var(--purple); transform: scale(1.4); }
   .fc-dot.seen { background: var(--pink-light); }
-  .stats-row { display: flex; justify-content: center; gap: 20px; margin-top: 1rem; flex-wrap: wrap; }
-  .stat-pill {
-    display: flex; align-items: center; gap: 6px;
-    background: white; border-radius: 100px; padding: 6px 16px;
-    font-size: 0.85rem; font-weight: 700; color: var(--text-muted);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.06); border: 1.5px solid var(--border);
-  }
-  .stat-dot { width: 10px; height: 10px; border-radius: 50%; }
 
-  /* REVISION */
-  .rev-unit {
-    background: white;
-    border-radius: 20px;
-    margin-bottom: 1.5rem;
-    box-shadow: var(--shadow);
-    border: 1.5px solid var(--border);
-    overflow: hidden;
+  .stats-row {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 1rem;
   }
-  .rev-unit-header {
+
+  .stat-pill {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 1.1rem 1.5rem;
-    cursor: pointer;
-    user-select: none;
-    gap: 10px;
+    gap: 6px;
+    background: white;
+    border-radius: 100px;
+    padding: 6px 16px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    border: 1.5px solid var(--border);
   }
-  .rev-unit-title { font-size: 1rem; font-weight: 800; display: flex; align-items: center; gap: 10px; }
-  .rev-unit-badge {
-    font-size: 0.75rem; font-weight: 700; padding: 4px 12px;
-    border-radius: 100px; letter-spacing: 0.5px;
-  }
-  .rev-arrow { font-size: 0.85rem; font-weight: 800; transition: transform 0.25s; color: var(--text-muted); }
-  .rev-unit.open .rev-arrow { transform: rotate(180deg); }
-  .rev-body { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
-  .rev-unit.open .rev-body { max-height: 5000px; }
-  .rev-topic {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    padding: 10px 1.5rem;
-    border-top: 1px solid var(--border);
-    font-size: 0.93rem; font-weight: 600; color: var(--text);
-    line-height: 1.6;
-  }
-  .rev-topic-bullet {
-    width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; margin-top: 6px;
-  }
-  .rev-sub { font-size: 0.83rem; color: var(--text-muted); font-weight: 500; margin-top: 3px; }
-  .rev-practical { background: linear-gradient(135deg, #fff7ed, #fff0f7); }
-  .rev-practical .rev-topic-bullet { background: var(--peach); }
 
-  /* Category colors */
-  .cat-virt  .section-badge { background: #ede9fe; color: #7c3aed; }
+  .stat-dot { width: 10px; height: 10px; border-radius: 50%; }
+
+  /* Category color bands */
+  .cat-virt .section-badge { background: #ede9fe; color: #7c3aed; }
   .cat-cloud .section-badge { background: #e0f2fe; color: #0369a1; }
   .cat-scale .section-badge { background: #fce7f3; color: #be185d; }
-  .cat-sec   .section-badge { background: #fef9c3; color: #854d0e; }
-  .cat-res   .section-badge { background: #dcfce7; color: #15803d; }
-  .cat-dep   .section-badge { background: #ffedd5; color: #c2410c; }
-  .cat-big   .section-badge { background: #f3e8ff; color: #7e22ce; }
-  .cat-prac  .section-badge { background: #fff7ed; color: #c2410c; }
-  .cat-soa   .section-badge { background: #e0f2fe; color: #0369a1; }
-  .cat-nosql .section-badge { background: #dcfce7; color: #15803d; }
-  .cat-adv   .section-badge { background: #fef9c3; color: #854d0e; }
+  .cat-sec .section-badge { background: #fef9c3; color: #854d0e; }
+  .cat-res .section-badge { background: #dcfce7; color: #15803d; }
+  .cat-dep .section-badge { background: #ffedd5; color: #c2410c; }
+  .cat-big .section-badge { background: #f3e8ff; color: #7e22ce; }
+
+  .empty-state {
+    text-align: center;
+    padding: 3rem;
+    color: var(--text-muted);
+    font-size: 1rem;
+    font-weight: 600;
+  }
 </style>
 </head>
 <body>
@@ -409,158 +513,150 @@
   <div class="floating-stars" style="bottom:8px;left:20%;animation-delay:0.5s">⭐</div>
   <div class="header-badge">Cloud Computing</div>
   <h1>Study Hub ☁️</h1>
-  <p>Your complete exam companion — theory, practicals &amp; more 🌟</p>
+  <p>Your cute little companion for exam prep 🌟</p>
 </header>
 
 <div class="tabs-nav">
-  <button class="tab-btn active" data-tab="todo" onclick="switchTab('todo')">✅ Checklist</button>
-  <button class="tab-btn" data-tab="qa" onclick="switchTab('qa')">💬 Q &amp; A</button>
-  <button class="tab-btn" data-tab="addqa" onclick="switchTab('addqa')">➕ Extra Q&amp;A</button>
-  <button class="tab-btn" data-tab="flashcard" onclick="switchTab('flashcard')">🃏 Flashcards</button>
-  <button class="tab-btn" data-tab="revision" onclick="switchTab('revision')">📖 Revision</button>
+  <button class="tab-btn active" data-tab="todo" onclick="switchTab('todo')">
+    <span class="tab-icon">✅</span> To-Do Checklist
+  </button>
+  <button class="tab-btn" data-tab="qa" onclick="switchTab('qa')">
+    <span class="tab-icon">💬</span> Q &amp; A
+  </button>
+  <button class="tab-btn" data-tab="flashcard" onclick="switchTab('flashcard')">
+    <span class="tab-icon">🃏</span> Flashcards
+  </button>
 </div>
 
-<!-- ══════════════ TODO TAB ══════════════ -->
+<!-- ═══════════════════ TODO TAB ═══════════════════ -->
 <div id="tab-todo" class="tab-content active">
 
   <div id="overall-progress" style="background:white;border-radius:20px;padding:1.25rem 1.5rem;margin-bottom:1.5rem;box-shadow:var(--shadow);border:1.5px solid var(--border);">
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
       <span style="font-weight:800;font-size:1rem;">Overall Progress</span>
-      <span id="overall-count" style="font-size:0.9rem;font-weight:700;color:var(--purple)">0 / 0 done</span>
+      <span id="overall-count" style="font-size:0.9rem;font-weight:700;color:var(--purple)">0 / 47 done</span>
     </div>
     <div class="progress-bar-wrap"><div class="progress-bar-fill" id="overall-bar" style="width:0%"></div></div>
   </div>
 
-  <!-- PRACTICAL -->
-  <div class="todo-section cat-prac">
-    <div class="todo-section-title">🧪 <span>Lab Assignments (Practicals)</span><span class="section-badge">10 assignments</span></div>
-    <div id="progress-prac" class="progress-bar-wrap"><div class="progress-bar-fill" style="width:0%"></div></div>
-    <p class="progress-label" id="label-prac">0 / 10</p>
-    <div style="margin-top:12px">
-      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="prac" onchange="updateProgress()"><span class="todo-label">Assignment 1 – MongoDB (CRUD, queries, aggregation)</span></label>
-      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="prac" onchange="updateProgress()"><span class="todo-label">Assignment 2 – Oracle VirtualBox (VM creation, snapshots)</span></label>
-      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="prac" onchange="updateProgress()"><span class="todo-label">Assignment 3 – KVM (virsh commands, VM lifecycle)</span></label>
-      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="prac" onchange="updateProgress()"><span class="todo-label">Assignment 4 – Docker (images, containers, Dockerfile)</span></label>
-      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="prac" onchange="updateProgress()"><span class="todo-label">Assignment 5 – Docker Extension (Docker Compose, networking)</span></label>
-      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="prac" onchange="updateProgress()"><span class="todo-label">Assignment 6 – CloudSim (Cloudlet, Broker, Host simulation)</span></label>
-      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="prac" onchange="updateProgress()"><span class="todo-label">Assignment 7 – Encryption &amp; Decryption (AES/RSA)</span></label>
-      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="prac" onchange="updateProgress()"><span class="todo-label">Assignment 8 – Hadoop (HDFS, MapReduce)</span></label>
-      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="prac" onchange="updateProgress()"><span class="todo-label">Assignment 9 – Amazon Web Services (EC2, S3, IAM)</span></label>
-      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="prac" onchange="updateProgress()"><span class="todo-label">Assignment 10 – RESTful &amp; SOAP Web Services</span></label>
-    </div>
-  </div>
-
-  <!-- UNIT 1 -->
-  <div class="todo-section cat-cloud">
-    <div class="todo-section-title">☁️ <span>Unit 1 – Cloud Fundamentals</span><span class="section-badge">8 topics</span></div>
-    <div id="progress-u1" class="progress-bar-wrap"><div class="progress-bar-fill" style="width:0%"></div></div>
-    <p class="progress-label" id="label-u1">0 / 8</p>
-    <div style="margin-top:12px">
-      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="u1" onchange="updateProgress()"><span class="todo-label">NIST 5 characteristics of cloud</span></label>
-      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="u1" onchange="updateProgress()"><span class="todo-label">IaaS, PaaS, SaaS – service models with examples</span></label>
-      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="u1" onchange="updateProgress()"><span class="todo-label">Deployment models – Public, Private, Hybrid, Community</span></label>
-      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="u1" onchange="updateProgress()"><span class="todo-label">SLA – Service Level Agreement</span></label>
-      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="u1" onchange="updateProgress()"><span class="todo-label">Multi-tenancy and Isolation</span></label>
-      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="u1" onchange="updateProgress()"><span class="todo-label">Cloud bursting &amp; dynamic provisioning</span></label>
-      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="u1" onchange="updateProgress()"><span class="todo-label">Horizontal vs vertical scaling</span></label>
-      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="u1" onchange="updateProgress()"><span class="todo-label">Federated cloud &amp; multi-cloud</span></label>
-    </div>
-  </div>
-
-  <!-- UNIT 2 -->
   <div class="todo-section cat-virt">
-    <div class="todo-section-title">🖥️ <span>Unit 2 – Virtualization &amp; Containers</span><span class="section-badge">10 topics</span></div>
-    <div id="progress-u2" class="progress-bar-wrap"><div class="progress-bar-fill" style="width:0%"></div></div>
-    <p class="progress-label" id="label-u2">0 / 10</p>
+    <div class="todo-section-title">
+      🖥️ <span>Virtualization</span>
+      <span class="section-badge">13 topics</span>
+    </div>
+    <div id="progress-virt" class="progress-bar-wrap"><div class="progress-bar-fill" style="width:0%"></div></div>
+    <p class="progress-label" id="label-virt">0 / 13</p>
     <div style="margin-top:12px">
-      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="u2" onchange="updateProgress()"><span class="todo-label">Types of virtualization</span></label>
-      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="u2" onchange="updateProgress()"><span class="todo-label">Hypervisor Type 1 vs Type 2</span></label>
-      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="u2" onchange="updateProgress()"><span class="todo-label">KVM vs VirtualBox</span></label>
-      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="u2" onchange="updateProgress()"><span class="todo-label">KVM architecture + virsh commands</span></label>
-      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="u2" onchange="updateProgress()"><span class="todo-label">QEMU and LibVirt</span></label>
-      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="u2" onchange="updateProgress()"><span class="todo-label">Docker architecture (daemon, client, registry)</span></label>
-      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="u2" onchange="updateProgress()"><span class="todo-label">Container vs VM – differences</span></label>
-      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="u2" onchange="updateProgress()"><span class="todo-label">AWS EC2, EBS, S3 overview</span></label>
-      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="u2" onchange="updateProgress()"><span class="todo-label">C-groups and namespaces</span></label>
-      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="u2" onchange="updateProgress()"><span class="todo-label">VM migration (live vs cold)</span></label>
+      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="virt" onchange="updateProgress()"><span class="todo-label">What is virtualization?</span></label>
+      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="virt" onchange="updateProgress()"><span class="todo-label">Is JVM a virtual machine?</span></label>
+      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="virt" onchange="updateProgress()"><span class="todo-label">Is Java platform independent or platform dependent?</span></label>
+      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="virt" onchange="updateProgress()"><span class="todo-label">Type 1 hypervisor – diagram</span></label>
+      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="virt" onchange="updateProgress()"><span class="todo-label">Type 1 vs Type 2 – which is more secure?</span></label>
+      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="virt" onchange="updateProgress()"><span class="todo-label">LibVirt – explain</span></label>
+      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="virt" onchange="updateProgress()"><span class="todo-label">Draw KVM architecture</span></label>
+      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="virt" onchange="updateProgress()"><span class="todo-label">Explain all virtualization commands</span></label>
+      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="virt" onchange="updateProgress()"><span class="todo-label">What is QEMU?</span></label>
+      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="virt" onchange="updateProgress()"><span class="todo-label">Communication between VMs / Shared memory</span></label>
+      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="virt" onchange="updateProgress()"><span class="todo-label">Migration in VM</span></label>
+      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="virt" onchange="updateProgress()"><span class="todo-label">C-groups</span></label>
+      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="virt" onchange="updateProgress()"><span class="todo-label">What is CloudSim?</span></label>
     </div>
   </div>
 
-  <!-- UNIT 3 -->
-  <div class="todo-section cat-nosql">
-    <div class="todo-section-title">📊 <span>Unit 3 – Data &amp; CloudSim</span><span class="section-badge">9 topics</span></div>
-    <div id="progress-u3" class="progress-bar-wrap"><div class="progress-bar-fill" style="width:0%"></div></div>
-    <p class="progress-label" id="label-u3">0 / 9</p>
+  <div class="todo-section cat-cloud">
+    <div class="todo-section-title">☁️ <span>Cloud Service Models</span><span class="section-badge">5 topics</span></div>
+    <div id="progress-cloud" class="progress-bar-wrap"><div class="progress-bar-fill" style="width:0%"></div></div>
+    <p class="progress-label" id="label-cloud">0 / 5</p>
     <div style="margin-top:12px">
-      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="u3" onchange="updateProgress()"><span class="todo-label">SQL vs NoSQL – differences</span></label>
-      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="u3" onchange="updateProgress()"><span class="todo-label">MongoDB CRUD operations</span></label>
-      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="u3" onchange="updateProgress()"><span class="todo-label">Map-Reduce concept with example</span></label>
-      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="u3" onchange="updateProgress()"><span class="todo-label">HDFS – NameNode and DataNode</span></label>
-      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="u3" onchange="updateProgress()"><span class="todo-label">CloudSim – Cloudlet, Broker, Host</span></label>
-      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="u3" onchange="updateProgress()"><span class="todo-label">Big Data – 5 V's</span></label>
-      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="u3" onchange="updateProgress()"><span class="todo-label">Value of Petabyte</span></label>
-      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="u3" onchange="updateProgress()"><span class="todo-label">Velocity in Big Data – with example</span></label>
-      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="u3" onchange="updateProgress()"><span class="todo-label">Big Data + Cloud relationship</span></label>
+      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="cloud" onchange="updateProgress()"><span class="todo-label">IaaS, PaaS, SaaS with examples</span></label>
+      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="cloud" onchange="updateProgress()"><span class="todo-label">Who has more control – vendor or user – in each model?</span></label>
+      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="cloud" onchange="updateProgress()"><span class="todo-label">Shortcomings of PaaS</span></label>
+      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="cloud" onchange="updateProgress()"><span class="todo-label">Mini project – which tool, which service model?</span></label>
+      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="cloud" onchange="updateProgress()"><span class="todo-label">Essential characteristics of cloud</span></label>
     </div>
   </div>
 
-  <!-- UNIT 4 -->
-  <div class="todo-section cat-soa">
-    <div class="todo-section-title">🔗 <span>Unit 4 – SOA &amp; Web Services</span><span class="section-badge">7 topics</span></div>
-    <div id="progress-u4" class="progress-bar-wrap"><div class="progress-bar-fill" style="width:0%"></div></div>
-    <p class="progress-label" id="label-u4">0 / 7</p>
+  <div class="todo-section cat-cloud">
+    <div class="todo-section-title">📐 <span>Cloud Concepts</span><span class="section-badge">6 topics</span></div>
+    <div id="progress-concepts" class="progress-bar-wrap"><div class="progress-bar-fill" style="width:0%"></div></div>
+    <p class="progress-label" id="label-concepts">0 / 6</p>
     <div style="margin-top:12px">
-      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="u4" onchange="updateProgress()"><span class="todo-label">SOA – characteristics &amp; principles</span></label>
-      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="u4" onchange="updateProgress()"><span class="todo-label">SOAP vs REST – full comparison</span></label>
-      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="u4" onchange="updateProgress()"><span class="todo-label">WSDL – Web Service Description Language</span></label>
-      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="u4" onchange="updateProgress()"><span class="todo-label">UDDI – Universal Description Discovery Integration</span></label>
-      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="u4" onchange="updateProgress()"><span class="todo-label">HTTP methods – GET, POST, PUT, DELETE, PATCH</span></label>
-      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="u4" onchange="updateProgress()"><span class="todo-label">REST constraints – stateless, uniform interface etc.</span></label>
-      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="u4" onchange="updateProgress()"><span class="todo-label">Mini project – which tool, which service model?</span></label>
+      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="concepts" onchange="updateProgress()"><span class="todo-label">What is multi-tenancy? Example</span></label>
+      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="concepts" onchange="updateProgress()"><span class="todo-label">What is isolation in cloud?</span></label>
+      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="concepts" onchange="updateProgress()"><span class="todo-label">Cloud bursting & dynamic provisioning in hybrid cloud</span></label>
+      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="concepts" onchange="updateProgress()"><span class="todo-label">Multi-cloud configuration</span></label>
+      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="concepts" onchange="updateProgress()"><span class="todo-label">Federated cloud and communication across cloud services</span></label>
+      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="concepts" onchange="updateProgress()"><span class="todo-label">AWS services overview</span></label>
     </div>
   </div>
 
-  <!-- UNIT 5 -->
+  <div class="todo-section cat-scale">
+    <div class="todo-section-title">📈 <span>Scaling</span><span class="section-badge">2 topics</span></div>
+    <div id="progress-scale" class="progress-bar-wrap"><div class="progress-bar-fill" style="width:0%"></div></div>
+    <p class="progress-label" id="label-scale">0 / 2</p>
+    <div style="margin-top:12px">
+      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="scale" onchange="updateProgress()"><span class="todo-label">Difference between horizontal and vertical scaling</span></label>
+      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="scale" onchange="updateProgress()"><span class="todo-label">Which scaling is cheaper?</span></label>
+    </div>
+  </div>
+
   <div class="todo-section cat-sec">
-    <div class="todo-section-title">🔐 <span>Unit 5 – Security &amp; Privacy</span><span class="section-badge">8 topics</span></div>
-    <div id="progress-u5" class="progress-bar-wrap"><div class="progress-bar-fill" style="width:0%"></div></div>
-    <p class="progress-label" id="label-u5">0 / 8</p>
+    <div class="todo-section-title">🔐 <span>Security in Cloud</span><span class="section-badge">6 topics</span></div>
+    <div id="progress-sec" class="progress-bar-wrap"><div class="progress-bar-fill" style="width:0%"></div></div>
+    <p class="progress-label" id="label-sec">0 / 6</p>
     <div style="margin-top:12px">
-      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="u5" onchange="updateProgress()"><span class="todo-label">IAM – root user vs IAM user</span></label>
-      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="u5" onchange="updateProgress()"><span class="todo-label">Security Groups vs NACL (Network ACL)</span></label>
-      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="u5" onchange="updateProgress()"><span class="todo-label">Data Privacy by Design – principles</span></label>
-      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="u5" onchange="updateProgress()"><span class="todo-label">Authentication vs Authorization</span></label>
-      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="u5" onchange="updateProgress()"><span class="todo-label">Why encryption is needed in cloud</span></label>
-      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="u5" onchange="updateProgress()"><span class="todo-label">AWS S3 encryption types (SSE-S3, SSE-KMS, SSE-C)</span></label>
-      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="u5" onchange="updateProgress()"><span class="todo-label">Types of security attacks in cloud (DoS, MitM)</span></label>
-      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="u5" onchange="updateProgress()"><span class="todo-label">Resource optimization algorithms</span></label>
+      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="sec" onchange="updateProgress()"><span class="todo-label">How will you maintain security in cloud?</span></label>
+      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="sec" onchange="updateProgress()"><span class="todo-label">Why is encryption needed in cloud?</span></label>
+      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="sec" onchange="updateProgress()"><span class="todo-label">AWS encryption/decryption in S3 storage</span></label>
+      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="sec" onchange="updateProgress()"><span class="todo-label">Authentication vs authorization – difference with examples</span></label>
+      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="sec" onchange="updateProgress()"><span class="todo-label">2 types of security attacks and any security measure</span></label>
+      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="sec" onchange="updateProgress()"><span class="todo-label">SOAP vs REST</span></label>
     </div>
   </div>
 
-  <!-- UNIT 6 -->
-  <div class="todo-section cat-adv">
-    <div class="todo-section-title">🚀 <span>Unit 6 – Advanced Cloud Topics</span><span class="section-badge">6 topics</span></div>
-    <div id="progress-u6" class="progress-bar-wrap"><div class="progress-bar-fill" style="width:0%"></div></div>
-    <p class="progress-label" id="label-u6">0 / 6</p>
+  <div class="todo-section cat-res">
+    <div class="todo-section-title">⚙️ <span>Resource Optimization</span><span class="section-badge">3 topics</span></div>
+    <div id="progress-res" class="progress-bar-wrap"><div class="progress-bar-fill" style="width:0%"></div></div>
+    <p class="progress-label" id="label-res">0 / 3</p>
     <div style="margin-top:12px">
-      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="u6" onchange="updateProgress()"><span class="todo-label">Serverless computing – definition and examples</span></label>
-      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="u6" onchange="updateProgress()"><span class="todo-label">Multi-cloud vs Federated cloud</span></label>
-      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="u6" onchange="updateProgress()"><span class="todo-label">DevOps + Cloud integration</span></label>
-      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="u6" onchange="updateProgress()"><span class="todo-label">AI in Cloud (ML as a Service)</span></label>
-      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="u6" onchange="updateProgress()"><span class="todo-label">Approach to deploy any application on cloud</span></label>
-      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="u6" onchange="updateProgress()"><span class="todo-label">Edge computing vs Cloud computing</span></label>
+      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="res" onchange="updateProgress()"><span class="todo-label">What is resource optimization?</span></label>
+      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="res" onchange="updateProgress()"><span class="todo-label">Algorithms for resource optimization</span></label>
+      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="res" onchange="updateProgress()"><span class="todo-label">Who decides how resources are to be optimized?</span></label>
+    </div>
+  </div>
+
+  <div class="todo-section cat-dep">
+    <div class="todo-section-title">🚀 <span>Deployment</span><span class="section-badge">1 topic</span></div>
+    <div id="progress-dep" class="progress-bar-wrap"><div class="progress-bar-fill" style="width:0%"></div></div>
+    <p class="progress-label" id="label-dep">0 / 1</p>
+    <div style="margin-top:12px">
+      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="dep" onchange="updateProgress()"><span class="todo-label">Approach to deploy any application/service on cloud</span></label>
+    </div>
+  </div>
+
+  <div class="todo-section cat-big">
+    <div class="todo-section-title">📊 <span>Big Data & Cloud</span><span class="section-badge">4 topics</span></div>
+    <div id="progress-big" class="progress-bar-wrap"><div class="progress-bar-fill" style="width:0%"></div></div>
+    <p class="progress-label" id="label-big">0 / 4</p>
+    <div style="margin-top:12px">
+      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="big" onchange="updateProgress()"><span class="todo-label">Big data and cloud – relationship</span></label>
+      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="big" onchange="updateProgress()"><span class="todo-label">What is big data?</span></label>
+      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="big" onchange="updateProgress()"><span class="todo-label">Value of a petabyte</span></label>
+      <label class="todo-item"><input type="checkbox" class="todo-check" data-section="big" onchange="updateProgress()"><span class="todo-label">Explain velocity with example in big data</span></label>
     </div>
   </div>
 
 </div>
 
-<!-- ══════════════ Q&A TAB ══════════════ -->
+<!-- ═══════════════════ Q&A TAB ═══════════════════ -->
 <div id="tab-qa" class="tab-content">
 
-  <div class="qa-section-title">🖥️ Unit 2 – Virtualization</div>
+  <div class="qa-section-title">🖥️ Virtualization</div>
 
   <div class="qa-item">
-    <div class="qa-question" onclick="toggleQA(this)"><span class="qa-q-text">What is virtualization?</span><span class="qa-arrow">▼</span></div>
+    <div class="qa-question" onclick="toggleQA(this)">
+      <span class="qa-q-text">What is virtualization?</span><span class="qa-arrow">▼</span>
+    </div>
     <div class="qa-answer">
       <strong>Virtualization</strong> is the process of creating a software-based (virtual) representation of something — such as servers, storage, networks, or operating systems — rather than a physical one.<br><br>
       A <strong>hypervisor</strong> (VMM – Virtual Machine Monitor) sits between hardware and the OS, allowing multiple VMs to run on one physical machine.<br><br>
@@ -569,19 +665,20 @@
   </div>
 
   <div class="qa-item">
-    <div class="qa-question" onclick="toggleQA(this)"><span class="qa-q-text">Types of Virtualization</span><span class="qa-arrow">▼</span></div>
+    <div class="qa-question" onclick="toggleQA(this)">
+      <span class="qa-q-text">Is JVM a virtual machine? Is Java platform independent or dependent?</span><span class="qa-arrow">▼</span>
+    </div>
     <div class="qa-answer">
-      <strong>1. Full Virtualization</strong> – Guest OS runs unmodified; hypervisor translates all privileged instructions. (VirtualBox, VMware)<br>
-      <strong>2. Para-Virtualization</strong> – Guest OS is modified to work cooperatively with hypervisor (Xen). Faster but needs OS modification.<br>
-      <strong>3. OS-level Virtualization (Containers)</strong> – Shares host OS kernel; lightweight isolation (Docker, LXC).<br>
-      <strong>4. Hardware-assisted Virtualization</strong> – CPU provides VT-x / AMD-V extensions; hypervisor uses hardware support (KVM).<br>
-      <strong>5. Storage Virtualization</strong> – Pools physical storage into logical units (SAN).<br>
-      <strong>6. Network Virtualization</strong> – Combines network resources (SDN, VLANs).
+      <strong>JVM (Java Virtual Machine)</strong> is a <em>process virtual machine</em> (not a system VM). It executes Java bytecode rather than virtualizing an entire OS or hardware.<br><br>
+      <strong>Java is platform independent</strong> at the source level — "Write Once, Run Anywhere." Java code compiles to bytecode (.class files), which any JVM can run. However, the JVM itself IS platform dependent — a different JVM is installed for Windows, Linux, Mac, etc.<br><br>
+      <div class="highlight-box">💡 Java code = platform independent | JVM = platform dependent</div>
     </div>
   </div>
 
   <div class="qa-item">
-    <div class="qa-question" onclick="toggleQA(this)"><span class="qa-q-text">Type 1 vs Type 2 Hypervisor – which is more secure?</span><span class="qa-arrow">▼</span></div>
+    <div class="qa-question" onclick="toggleQA(this)">
+      <span class="qa-q-text">Type 1 vs Type 2 Hypervisor – which is more secure?</span><span class="qa-arrow">▼</span>
+    </div>
     <div class="qa-answer">
       <table>
         <tr><th></th><th>Type 1 (Bare-metal)</th><th>Type 2 (Hosted)</th></tr>
@@ -596,85 +693,52 @@
   </div>
 
   <div class="qa-item">
-    <div class="qa-question" onclick="toggleQA(this)"><span class="qa-q-text">KVM vs VirtualBox</span><span class="qa-arrow">▼</span></div>
-    <div class="qa-answer">
-      <table>
-        <tr><th></th><th>KVM</th><th>VirtualBox</th></tr>
-        <tr><td>Type</td><td>Type 1 (Bare-metal, Linux kernel module)</td><td>Type 2 (Hosted)</td></tr>
-        <tr><td>Platform</td><td>Linux only</td><td>Windows, Linux, macOS</td></tr>
-        <tr><td>Performance</td><td>Near-native (hardware-assisted)</td><td>Slower (software emulation)</td></tr>
-        <tr><td>GUI</td><td>No built-in GUI (use virt-manager)</td><td>Has built-in GUI</td></tr>
-        <tr><td>Use case</td><td>Production servers, cloud (OpenStack)</td><td>Desktop development, testing</td></tr>
-        <tr><td>License</td><td>Open-source (GPL)</td><td>Open-source (GPL)</td></tr>
-      </table>
+    <div class="qa-question" onclick="toggleQA(this)">
+      <span class="qa-q-text">What is KVM? Draw KVM Architecture.</span><span class="qa-arrow">▼</span>
     </div>
-  </div>
-
-  <div class="qa-item">
-    <div class="qa-question" onclick="toggleQA(this)"><span class="qa-q-text">Docker Architecture – explain</span><span class="qa-arrow">▼</span></div>
-    <div class="qa-answer">
-      Docker follows a <strong>client-server architecture</strong>:<br><br>
-      <strong>Docker Client</strong> – CLI tool you use (docker run, docker build). Sends commands to daemon via REST API.<br>
-      <strong>Docker Daemon (dockerd)</strong> – Background service that manages images, containers, networks, volumes.<br>
-      <strong>Docker Registry</strong> – Stores Docker images (Docker Hub is public; ECR, ACR are private registries).<br>
-      <strong>Docker Objects</strong>:<br>
-      &nbsp;&nbsp;• <em>Image</em> – Read-only template (like a blueprint)<br>
-      &nbsp;&nbsp;• <em>Container</em> – Running instance of an image<br>
-      &nbsp;&nbsp;• <em>Dockerfile</em> – Script to build an image<br>
-      &nbsp;&nbsp;• <em>Volume</em> – Persistent storage for containers<br>
-      <div class="highlight-box mint">🐳 Docker uses Linux namespaces for isolation and c-groups for resource limits — no separate OS needed per container.</div>
-    </div>
-  </div>
-
-  <div class="qa-item">
-    <div class="qa-question" onclick="toggleQA(this)"><span class="qa-q-text">Container vs Virtual Machine</span><span class="qa-arrow">▼</span></div>
-    <div class="qa-answer">
-      <table>
-        <tr><th></th><th>Container</th><th>Virtual Machine</th></tr>
-        <tr><td>OS</td><td>Shares host OS kernel</td><td>Has its own full OS</td></tr>
-        <tr><td>Size</td><td>MBs (lightweight)</td><td>GBs (heavy)</td></tr>
-        <tr><td>Startup</td><td>Seconds</td><td>Minutes</td></tr>
-        <tr><td>Isolation</td><td>Process-level</td><td>Full hardware-level</td></tr>
-        <tr><td>Portability</td><td>Very high</td><td>Less portable</td></tr>
-        <tr><td>Example</td><td>Docker, LXC</td><td>VMware, VirtualBox, KVM</td></tr>
-      </table>
-      <div class="highlight-box">💡 Use containers for microservices/deployment; use VMs for strong isolation and running different OS environments.</div>
-    </div>
-  </div>
-
-  <div class="qa-item">
-    <div class="qa-question" onclick="toggleQA(this)"><span class="qa-q-text">What is KVM? Draw KVM Architecture.</span><span class="qa-arrow">▼</span></div>
     <div class="qa-answer">
       <strong>KVM (Kernel-based Virtual Machine)</strong> is a Type 1 hypervisor built into the Linux kernel. It converts Linux into a bare-metal hypervisor.<br><br>
+      <strong>Architecture:</strong><br>
       <div class="highlight-box">
-        Hardware (CPU with VT-x/AMD-V)<br>↓<br>
-        Linux Kernel + KVM Module (/dev/kvm)<br>↓<br>
-        QEMU (I/O device emulation)<br>↓<br>
-        Guest VMs (each with vCPU, vRAM, vDisk)
+        Hardware (CPU with VT-x/AMD-V support)<br>
+        ↓<br>
+        Linux Kernel + KVM Module (/dev/kvm)<br>
+        ↓<br>
+        QEMU (provides device emulation)<br>
+        ↓<br>
+        Guest VMs (each with virtual CPU, RAM, storage)
       </div>
-      KVM uses <strong>QEMU</strong> for I/O emulation and <strong>libvirt</strong> as the management API layer.
+      KVM uses <strong>QEMU</strong> for I/O emulation and <strong>libvirt</strong> as the management layer.
     </div>
   </div>
 
   <div class="qa-item">
-    <div class="qa-question" onclick="toggleQA(this)"><span class="qa-q-text">AWS EC2, EBS, S3 – overview</span><span class="qa-arrow">▼</span></div>
+    <div class="qa-question" onclick="toggleQA(this)">
+      <span class="qa-q-text">What is LibVirt? What is QEMU?</span><span class="qa-arrow">▼</span>
+    </div>
     <div class="qa-answer">
-      <strong>EC2 (Elastic Compute Cloud)</strong> – Virtual servers (VMs) in the cloud. Choose OS, CPU, RAM. You pay per hour. Examples: t2.micro, m5.large.<br><br>
-      <strong>EBS (Elastic Block Store)</strong> – Persistent block storage attached to EC2 instances. Like a virtual hard drive. Data persists even if instance stops.<br><br>
-      <strong>S3 (Simple Storage Service)</strong> – Object storage service. Stores files, backups, static websites. Virtually unlimited capacity. Accessible via URL.<br><br>
-      <table>
-        <tr><th>Service</th><th>Type</th><th>Use case</th></tr>
-        <tr><td>EC2</td><td>Compute</td><td>Run applications, web servers</td></tr>
-        <tr><td>EBS</td><td>Block Storage</td><td>Database storage, OS volumes</td></tr>
-        <tr><td>S3</td><td>Object Storage</td><td>File storage, backups, static sites</td></tr>
-      </table>
+      <strong>LibVirt</strong> is an open-source API and management toolkit for managing platform virtualization. It provides a unified interface to manage KVM, QEMU, Xen, VirtualBox, etc. Key commands: <code>virsh list</code>, <code>virsh start</code>, <code>virsh shutdown</code>, <code>virsh define</code>.<br><br>
+      <strong>QEMU (Quick EMUlator)</strong> is an open-source machine emulator and virtualizer. When used with KVM, QEMU handles I/O device emulation while KVM handles CPU and memory virtualization for near-native performance.
     </div>
   </div>
 
-  <div class="qa-section-title" style="margin-top:2rem">☁️ Unit 1 – Cloud Fundamentals</div>
+  <div class="qa-item">
+    <div class="qa-question" onclick="toggleQA(this)">
+      <span class="qa-q-text">What is CloudSim?</span><span class="qa-arrow">▼</span>
+    </div>
+    <div class="qa-answer">
+      <strong>CloudSim</strong> is a simulation toolkit for modeling and simulating cloud computing environments and services. It allows researchers to evaluate algorithms and policies for cloud resource management without needing real infrastructure.<br><br>
+      It simulates: Datacenters, VMs, cloudlets (tasks), brokers, and resource scheduling.
+      <div class="highlight-box">📦 Used in research to test scheduling algorithms, load balancing, and resource allocation policies.</div>
+    </div>
+  </div>
+
+  <div class="qa-section-title" style="margin-top:2rem">☁️ Cloud Service Models</div>
 
   <div class="qa-item">
-    <div class="qa-question" onclick="toggleQA(this)"><span class="qa-q-text">IaaS, PaaS, SaaS – explain with examples</span><span class="qa-arrow">▼</span></div>
+    <div class="qa-question" onclick="toggleQA(this)">
+      <span class="qa-q-text">IaaS, PaaS, SaaS – explain with examples</span><span class="qa-arrow">▼</span>
+    </div>
     <div class="qa-answer">
       <table>
         <tr><th>Model</th><th>Full Form</th><th>You manage</th><th>Examples</th></tr>
@@ -682,138 +746,95 @@
         <tr><td><strong>PaaS</strong></td><td>Platform as a Service</td><td>Apps, data only</td><td>Heroku, Google App Engine, AWS Elastic Beanstalk</td></tr>
         <tr><td><strong>SaaS</strong></td><td>Software as a Service</td><td>Nothing (just use it)</td><td>Gmail, Dropbox, Salesforce, Zoom</td></tr>
       </table>
-      <div class="highlight-box">🎯 Control: IaaS = most control for user | SaaS = most control for vendor.</div>
+      <div class="highlight-box">🎯 Control: IaaS = most control | SaaS = least control. Vendor control is inverse of this.</div>
     </div>
   </div>
 
   <div class="qa-item">
-    <div class="qa-question" onclick="toggleQA(this)"><span class="qa-q-text">Cloud Deployment Models</span><span class="qa-arrow">▼</span></div>
+    <div class="qa-question" onclick="toggleQA(this)">
+      <span class="qa-q-text">Shortcomings of PaaS</span><span class="qa-arrow">▼</span>
+    </div>
     <div class="qa-answer">
-      <strong>1. Public Cloud</strong> – Owned and operated by third-party (AWS, Azure, GCP). Resources shared across customers. Cost-effective.<br>
-      <strong>2. Private Cloud</strong> – Dedicated to one organization. Hosted on-premises or by provider. More secure, more expensive.<br>
-      <strong>3. Hybrid Cloud</strong> – Combination of public + private. Data moves between both. Supports cloud bursting.<br>
-      <strong>4. Community Cloud</strong> – Shared among organizations with common goals (e.g., government agencies, hospitals).<br>
-      <div class="highlight-box">💡 Hybrid = flexibility. Private = control. Public = cost savings. Community = shared compliance.</div>
+      1. <strong>Vendor lock-in</strong> – difficult to migrate apps to another provider<br>
+      2. <strong>Limited control</strong> – can't control the underlying infrastructure<br>
+      3. <strong>Runtime limitations</strong> – may not support all languages/frameworks<br>
+      4. <strong>Data security concerns</strong> – sensitive data lives on vendor's platform<br>
+      5. <strong>Customization limits</strong> – less flexibility than IaaS
     </div>
   </div>
 
   <div class="qa-item">
-    <div class="qa-question" onclick="toggleQA(this)"><span class="qa-q-text">What is SLA (Service Level Agreement)?</span><span class="qa-arrow">▼</span></div>
+    <div class="qa-question" onclick="toggleQA(this)">
+      <span class="qa-q-text">Essential characteristics of cloud computing</span><span class="qa-arrow">▼</span>
+    </div>
     <div class="qa-answer">
-      An <strong>SLA</strong> is a formal contract between the cloud service provider and the customer that defines:<br><br>
-      • <strong>Uptime guarantee</strong> – e.g., 99.9% availability ("three nines")<br>
-      • <strong>Response time</strong> – how fast issues are addressed<br>
-      • <strong>Performance metrics</strong> – CPU, storage, bandwidth benchmarks<br>
-      • <strong>Penalties</strong> – compensation if provider fails (service credits)<br>
-      • <strong>Security requirements</strong> – data protection obligations<br><br>
-      <div class="highlight-box">📋 Example: AWS S3 SLA promises 99.9% monthly uptime. If they fall below, customers get service credits.</div>
+      According to NIST, cloud computing has 5 essential characteristics:<br><br>
+      1. <strong>On-demand self-service</strong> – provision resources without human interaction<br>
+      2. <strong>Broad network access</strong> – accessible over the network via standard mechanisms<br>
+      3. <strong>Resource pooling</strong> – shared resources serve multiple consumers (multi-tenancy)<br>
+      4. <strong>Rapid elasticity</strong> – scale up/down quickly based on demand<br>
+      5. <strong>Measured service</strong> – pay-as-you-go, usage is metered and monitored
     </div>
   </div>
 
+  <div class="qa-section-title" style="margin-top:2rem">📈 Scaling</div>
+
   <div class="qa-item">
-    <div class="qa-question" onclick="toggleQA(this)"><span class="qa-q-text">Essential characteristics of cloud computing (NIST)</span><span class="qa-arrow">▼</span></div>
-    <div class="qa-answer">
-      1. <strong>On-demand self-service</strong> – Provision resources without human interaction<br>
-      2. <strong>Broad network access</strong> – Accessible over the network via standard mechanisms<br>
-      3. <strong>Resource pooling</strong> – Shared resources serve multiple consumers (multi-tenancy)<br>
-      4. <strong>Rapid elasticity</strong> – Scale up/down quickly based on demand<br>
-      5. <strong>Measured service</strong> – Pay-as-you-go; usage is metered and monitored
+    <div class="qa-question" onclick="toggleQA(this)">
+      <span class="qa-q-text">Horizontal vs Vertical Scaling – which is cheaper?</span><span class="qa-arrow">▼</span>
     </div>
-  </div>
-
-  <div class="qa-section-title" style="margin-top:2rem">📊 Unit 3 – Data &amp; CloudSim</div>
-
-  <div class="qa-item">
-    <div class="qa-question" onclick="toggleQA(this)"><span class="qa-q-text">SQL vs NoSQL</span><span class="qa-arrow">▼</span></div>
     <div class="qa-answer">
       <table>
-        <tr><th></th><th>SQL (Relational)</th><th>NoSQL (Non-Relational)</th></tr>
-        <tr><td>Schema</td><td>Fixed schema (tables)</td><td>Dynamic schema (documents, key-value)</td></tr>
-        <tr><td>Scaling</td><td>Vertical scaling</td><td>Horizontal scaling</td></tr>
-        <tr><td>Transactions</td><td>ACID compliant</td><td>BASE (Eventually consistent)</td></tr>
-        <tr><td>Examples</td><td>MySQL, PostgreSQL, Oracle</td><td>MongoDB, Cassandra, Redis, DynamoDB</td></tr>
-        <tr><td>Best for</td><td>Structured data, banking, ERP</td><td>Big data, real-time apps, social media</td></tr>
+        <tr><th></th><th>Vertical Scaling (Scale Up)</th><th>Horizontal Scaling (Scale Out)</th></tr>
+        <tr><td>Method</td><td>Add more power (CPU/RAM) to existing machine</td><td>Add more machines</td></tr>
+        <tr><td>Example</td><td>Upgrade from 8GB to 64GB RAM</td><td>Add 3 more servers</td></tr>
+        <tr><td>Limit</td><td>Hardware has a ceiling</td><td>Theoretically unlimited</td></tr>
+        <tr><td>Downtime</td><td>Usually needed</td><td>No downtime</td></tr>
+        <tr><td>Cost</td><td>Expensive (high-end hardware)</td><td>Cheaper (commodity hardware)</td></tr>
+        <tr><td>Complexity</td><td>Simple</td><td>More complex (load balancing needed)</td></tr>
       </table>
+      <div class="highlight-box">💰 Horizontal scaling is generally cheaper – you use commodity hardware. Vertical scaling hits diminishing returns at high specs.</div>
     </div>
   </div>
 
+  <div class="qa-section-title" style="margin-top:2rem">🔐 Security</div>
+
   <div class="qa-item">
-    <div class="qa-question" onclick="toggleQA(this)"><span class="qa-q-text">MongoDB CRUD Operations</span><span class="qa-arrow">▼</span></div>
+    <div class="qa-question" onclick="toggleQA(this)">
+      <span class="qa-q-text">Why is encryption needed in cloud?</span><span class="qa-arrow">▼</span>
+    </div>
     <div class="qa-answer">
-      MongoDB stores data as <strong>JSON-like documents (BSON)</strong> in collections.<br><br>
-      <strong>Create:</strong> <code>db.students.insertOne({name:"Alice", age:20})</code><br>
-      <strong>Read:</strong> <code>db.students.find({age:{$gt:18}})</code><br>
-      <strong>Update:</strong> <code>db.students.updateOne({name:"Alice"}, {$set:{age:21}})</code><br>
-      <strong>Delete:</strong> <code>db.students.deleteOne({name:"Alice"})</code><br><br>
-      <div class="highlight-box mint">🍃 Key terms: Collection = Table, Document = Row, Field = Column, _id = Primary Key</div>
+      Encryption converts data into unreadable ciphertext so only authorized parties with the decryption key can read it.<br><br>
+      <strong>Why it's needed in cloud:</strong><br>
+      1. <strong>Data in transit</strong> – data traveling over networks can be intercepted (man-in-the-middle attacks)<br>
+      2. <strong>Data at rest</strong> – files stored on cloud servers could be accessed by unauthorized parties or even cloud staff<br>
+      3. <strong>Regulatory compliance</strong> – GDPR, HIPAA require data protection<br>
+      4. <strong>Multi-tenancy risk</strong> – multiple users share infrastructure; encryption keeps data isolated<br>
+      5. <strong>Breach protection</strong> – even if data is stolen, it's useless without the key
     </div>
   </div>
 
   <div class="qa-item">
-    <div class="qa-question" onclick="toggleQA(this)"><span class="qa-q-text">Map-Reduce concept with example</span><span class="qa-arrow">▼</span></div>
+    <div class="qa-question" onclick="toggleQA(this)">
+      <span class="qa-q-text">Authentication vs Authorization – difference with examples</span><span class="qa-arrow">▼</span>
+    </div>
     <div class="qa-answer">
-      <strong>MapReduce</strong> is a programming model for processing large datasets in parallel across a cluster.<br><br>
-      <strong>Map phase</strong> – Splits input data into key-value pairs<br>
-      <strong>Shuffle phase</strong> – Groups all values with the same key<br>
-      <strong>Reduce phase</strong> – Aggregates values per key<br><br>
-      <em>Example – Word Count:</em><br>
-      Input: "hello world hello"<br>
-      Map: (hello,1), (world,1), (hello,1)<br>
-      Shuffle: hello→[1,1], world→[1]<br>
-      Reduce: hello→2, world→1
-      <div class="highlight-box">📦 Used in Hadoop for big data processing. Enables parallel processing on thousands of nodes.</div>
+      <table>
+        <tr><th></th><th>Authentication</th><th>Authorization</th></tr>
+        <tr><td>Question</td><td>"Who are you?"</td><td>"What can you do?"</td></tr>
+        <tr><td>Purpose</td><td>Verify identity</td><td>Grant permissions</td></tr>
+        <tr><td>Happens</td><td>First</td><td>After authentication</td></tr>
+        <tr><td>Example</td><td>Login with username + password</td><td>Admin can delete users; regular user cannot</td></tr>
+        <tr><td>Protocols</td><td>OAuth (for identity), SAML</td><td>RBAC, ACL, OAuth scopes</td></tr>
+      </table>
+      <div class="highlight-box">🏢 Real example: You swipe your ID card at the office door (authentication). Once inside, you can only access your floor, not the CEO's office (authorization).</div>
     </div>
   </div>
 
   <div class="qa-item">
-    <div class="qa-question" onclick="toggleQA(this)"><span class="qa-q-text">HDFS – NameNode and DataNode</span><span class="qa-arrow">▼</span></div>
-    <div class="qa-answer">
-      <strong>HDFS (Hadoop Distributed File System)</strong> stores files across multiple machines.<br><br>
-      <strong>NameNode (Master)</strong>:<br>
-      &nbsp;• Stores metadata (file names, directory structure, block locations)<br>
-      &nbsp;• Does NOT store actual data<br>
-      &nbsp;• Single point of failure (use Secondary NameNode for backup)<br><br>
-      <strong>DataNode (Worker)</strong>:<br>
-      &nbsp;• Stores actual data blocks (default 128MB per block)<br>
-      &nbsp;• Reports block info to NameNode via heartbeat<br>
-      &nbsp;• Data replicated 3× by default for fault tolerance<br><br>
-      <div class="highlight-box">📁 Client → NameNode (get block location) → DataNode (read/write data)</div>
+    <div class="qa-question" onclick="toggleQA(this)">
+      <span class="qa-q-text">SOAP vs REST</span><span class="qa-arrow">▼</span>
     </div>
-  </div>
-
-  <div class="qa-item">
-    <div class="qa-question" onclick="toggleQA(this)"><span class="qa-q-text">CloudSim – Cloudlet, Broker, Host</span><span class="qa-arrow">▼</span></div>
-    <div class="qa-answer">
-      <strong>CloudSim</strong> is a simulation toolkit for modeling cloud environments in Java.<br><br>
-      <strong>Key components:</strong><br>
-      • <strong>Datacenter</strong> – Physical infrastructure (hosts, storage)<br>
-      • <strong>Host</strong> – Represents a physical server with RAM, CPU, bandwidth<br>
-      • <strong>VM (Virtual Machine)</strong> – Virtual resource created on a host<br>
-      • <strong>Cloudlet</strong> – A unit of work/task submitted by user (has MIPS length, file size)<br>
-      • <strong>DatacenterBroker</strong> – Mediates between user (cloudlets) and datacenter (VMs); handles scheduling<br>
-      • <strong>CloudletScheduler</strong> – Decides how cloudlets share VM resources (SpaceShared / TimeShared)<br>
-      <div class="highlight-box mint">🔬 Used in research to test scheduling algorithms without real hardware.</div>
-    </div>
-  </div>
-
-  <div class="qa-section-title" style="margin-top:2rem">🔗 Unit 4 – SOA &amp; Web Services</div>
-
-  <div class="qa-item">
-    <div class="qa-question" onclick="toggleQA(this)"><span class="qa-q-text">SOA characteristics</span><span class="qa-arrow">▼</span></div>
-    <div class="qa-answer">
-      <strong>SOA (Service-Oriented Architecture)</strong> is an architectural style where software components are built as independent services that communicate over a network.<br><br>
-      <strong>Key characteristics:</strong><br>
-      1. <strong>Loose coupling</strong> – Services are independent, changes in one don't break others<br>
-      2. <strong>Reusability</strong> – Services can be reused across different applications<br>
-      3. <strong>Interoperability</strong> – Different technologies can work together (Java + .NET)<br>
-      4. <strong>Abstraction</strong> – Internal logic hidden from service consumers<br>
-      5. <strong>Discoverability</strong> – Services can be found and invoked (via UDDI)<br>
-      6. <strong>Composability</strong> – Simple services combined to build complex workflows
-    </div>
-  </div>
-
-  <div class="qa-item">
-    <div class="qa-question" onclick="toggleQA(this)"><span class="qa-q-text">SOAP vs REST</span><span class="qa-arrow">▼</span></div>
     <div class="qa-answer">
       <table>
         <tr><th></th><th>SOAP</th><th>REST</th></tr>
@@ -827,400 +848,65 @@
     </div>
   </div>
 
+  <div class="qa-section-title" style="margin-top:2rem">⚙️ Resource Optimization</div>
+
   <div class="qa-item">
-    <div class="qa-question" onclick="toggleQA(this)"><span class="qa-q-text">WSDL and UDDI – explain</span><span class="qa-arrow">▼</span></div>
+    <div class="qa-question" onclick="toggleQA(this)">
+      <span class="qa-q-text">What is resource optimization? Algorithms? Who decides?</span><span class="qa-arrow">▼</span>
+    </div>
     <div class="qa-answer">
-      <strong>WSDL (Web Services Description Language)</strong> – An XML document that describes a web service:<br>
-      &nbsp;• What operations the service offers<br>
-      &nbsp;• Input/output message formats<br>
-      &nbsp;• Where the service is located (endpoint URL)<br>
-      &nbsp;• What protocol to use<br><br>
-      <strong>UDDI (Universal Description Discovery and Integration)</strong> – A directory/registry where businesses publish and discover web services. Like a "Yellow Pages" for web services.<br><br>
-      <div class="highlight-box">🔄 Flow: Service Provider creates WSDL → publishes to UDDI → Service Consumer discovers via UDDI → uses WSDL to call service</div>
+      <strong>Resource optimization</strong> in cloud means allocating computing resources (CPU, memory, storage, bandwidth) efficiently to maximize utilization while minimizing cost and energy consumption.<br><br>
+      <strong>Common algorithms:</strong><br>
+      1. <strong>First Fit / Best Fit / Worst Fit</strong> – bin-packing style VM placement<br>
+      2. <strong>Round Robin</strong> – distribute tasks evenly across VMs<br>
+      3. <strong>Genetic Algorithm</strong> – evolutionary optimization for multi-objective scheduling<br>
+      4. <strong>PSO (Particle Swarm Optimization)</strong> – nature-inspired optimization<br>
+      5. <strong>Throttled / FCFS</strong> – simple cloud scheduler approaches<br><br>
+      <strong>Who decides?</strong> The <strong>cloud resource manager / scheduler</strong> (automated) decides, based on policies set by the cloud administrator or SLA requirements.
+    </div>
+  </div>
+
+  <div class="qa-section-title" style="margin-top:2rem">📊 Big Data</div>
+
+  <div class="qa-item">
+    <div class="qa-question" onclick="toggleQA(this)">
+      <span class="qa-q-text">What is Big Data? Value of a Petabyte? Explain Velocity.</span><span class="qa-arrow">▼</span>
+    </div>
+    <div class="qa-answer">
+      <strong>Big Data</strong> refers to extremely large datasets characterized by the <strong>5 V's</strong>: Volume, Velocity, Variety, Veracity, Value — too large to process with traditional tools.<br><br>
+      <strong>Value of 1 Petabyte:</strong><br>
+      <div class="highlight-box">1 PB = 1,024 TB = 1,048,576 GB = 1,073,741,824 MB</div>
+      <strong>Velocity</strong> – the speed at which data is generated and processed.<br>
+      <em>Example:</em> Twitter generates ~500 million tweets/day. Stock market processes thousands of transactions per second. For big data systems, data must be ingested and analyzed in near real-time (stream processing via Apache Kafka, Spark Streaming).
     </div>
   </div>
 
   <div class="qa-item">
-    <div class="qa-question" onclick="toggleQA(this)"><span class="qa-q-text">HTTP Methods – GET, POST, PUT, DELETE, PATCH</span><span class="qa-arrow">▼</span></div>
-    <div class="qa-answer">
-      <table>
-        <tr><th>Method</th><th>Action</th><th>Idempotent?</th><th>Example</th></tr>
-        <tr><td>GET</td><td>Retrieve data</td><td>Yes</td><td>GET /users/1</td></tr>
-        <tr><td>POST</td><td>Create new resource</td><td>No</td><td>POST /users</td></tr>
-        <tr><td>PUT</td><td>Replace entire resource</td><td>Yes</td><td>PUT /users/1</td></tr>
-        <tr><td>PATCH</td><td>Partially update resource</td><td>No</td><td>PATCH /users/1</td></tr>
-        <tr><td>DELETE</td><td>Remove resource</td><td>Yes</td><td>DELETE /users/1</td></tr>
-      </table>
+    <div class="qa-question" onclick="toggleQA(this)">
+      <span class="qa-q-text">What is multi-tenancy? What is isolation in cloud?</span><span class="qa-arrow">▼</span>
     </div>
-  </div>
-
-  <div class="qa-section-title" style="margin-top:2rem">🔐 Unit 5 – Security</div>
-
-  <div class="qa-item">
-    <div class="qa-question" onclick="toggleQA(this)"><span class="qa-q-text">IAM – root user vs IAM user in AWS</span><span class="qa-arrow">▼</span></div>
     <div class="qa-answer">
-      <table>
-        <tr><th></th><th>Root User</th><th>IAM User</th></tr>
-        <tr><td>Created</td><td>When account is created</td><td>Created by root/admin</td></tr>
-        <tr><td>Permissions</td><td>Full, unrestricted access</td><td>Defined by policies (restricted)</td></tr>
-        <tr><td>Best Practice</td><td>Use only for billing/account tasks</td><td>Use for day-to-day operations</td></tr>
-        <tr><td>MFA</td><td>Strongly recommended</td><td>Recommended</td></tr>
-      </table>
-      <div class="highlight-box">🔒 Best Practice: Never use root user for daily tasks. Create IAM users with least-privilege permissions.</div>
-    </div>
-  </div>
-
-  <div class="qa-item">
-    <div class="qa-question" onclick="toggleQA(this)"><span class="qa-q-text">Security Groups vs Network ACL (NACL)</span><span class="qa-arrow">▼</span></div>
-    <div class="qa-answer">
-      <table>
-        <tr><th></th><th>Security Group</th><th>Network ACL</th></tr>
-        <tr><td>Level</td><td>Instance level (EC2)</td><td>Subnet level</td></tr>
-        <tr><td>State</td><td>Stateful (return traffic auto-allowed)</td><td>Stateless (must explicitly allow return)</td></tr>
-        <tr><td>Rules</td><td>Allow rules only</td><td>Allow AND deny rules</td></tr>
-        <tr><td>Evaluation</td><td>All rules evaluated together</td><td>Rules evaluated in order (lowest number first)</td></tr>
-      </table>
-      <div class="highlight-box peach">🛡️ Security Groups = first line of defense at VM level. NACL = second line at subnet level.</div>
-    </div>
-  </div>
-
-  <div class="qa-item">
-    <div class="qa-question" onclick="toggleQA(this)"><span class="qa-q-text">Data Privacy by Design – principles</span><span class="qa-arrow">▼</span></div>
-    <div class="qa-answer">
-      <strong>Privacy by Design</strong> means embedding privacy into system design from the start, not as an afterthought.<br><br>
-      <strong>7 Foundational Principles:</strong><br>
-      1. Proactive not reactive – prevent privacy violations before they happen<br>
-      2. Privacy as the default – automatically protect user data<br>
-      3. Privacy embedded into design – not bolted on afterward<br>
-      4. Full functionality – privacy AND security (not a trade-off)<br>
-      5. End-to-end security – data protected throughout lifecycle<br>
-      6. Visibility and transparency – open about practices<br>
-      7. Respect for user privacy – keep user-centric<br>
-      <div class="highlight-box">📋 Mandated by GDPR (Article 25). Applies to all cloud systems handling personal data.</div>
-    </div>
-  </div>
-
-  <div class="qa-section-title" style="margin-top:2rem">🚀 Unit 6 – Advanced Topics</div>
-
-  <div class="qa-item">
-    <div class="qa-question" onclick="toggleQA(this)"><span class="qa-q-text">Serverless Computing</span><span class="qa-arrow">▼</span></div>
-    <div class="qa-answer">
-      <strong>Serverless computing</strong> means you write and deploy functions without managing servers. The cloud provider automatically provisions, scales, and manages infrastructure.<br><br>
-      <strong>Key characteristics:</strong><br>
-      • Pay per execution (not per hour)<br>
-      • Auto-scales to zero (no idle costs)<br>
-      • Event-driven execution<br>
-      • No server management<br><br>
-      <strong>Examples:</strong> AWS Lambda, Google Cloud Functions, Azure Functions<br><br>
-      <div class="highlight-box mint">⚡ Example: An image upload triggers an AWS Lambda function that automatically resizes the image — no server needed.</div>
-    </div>
-  </div>
-
-  <div class="qa-item">
-    <div class="qa-question" onclick="toggleQA(this)"><span class="qa-q-text">Multi-cloud vs Federated Cloud</span><span class="qa-arrow">▼</span></div>
-    <div class="qa-answer">
-      <strong>Multi-cloud</strong> – Using services from multiple cloud providers independently (AWS + GCP + Azure). No integration between providers; each used for different workloads.<br><br>
-      <strong>Federated Cloud</strong> – Multiple cloud providers interconnected and sharing resources/standards. Workloads can move transparently across providers. Requires common APIs and protocols.<br><br>
-      <table>
-        <tr><th></th><th>Multi-cloud</th><th>Federated Cloud</th></tr>
-        <tr><td>Integration</td><td>No shared standards</td><td>Shared standards/APIs</td></tr>
-        <tr><td>Portability</td><td>Manual migration</td><td>Seamless migration</td></tr>
-        <tr><td>Governance</td><td>Per-cloud</td><td>Unified governance</td></tr>
-      </table>
-    </div>
-  </div>
-
-  <div class="qa-item">
-    <div class="qa-question" onclick="toggleQA(this)"><span class="qa-q-text">DevOps + Cloud</span><span class="qa-arrow">▼</span></div>
-    <div class="qa-answer">
-      <strong>DevOps</strong> is a culture/practice that combines Development + Operations to deliver software faster and more reliably.<br><br>
-      <strong>Cloud enables DevOps through:</strong><br>
-      • <strong>CI/CD pipelines</strong> – Automated build, test, deploy (AWS CodePipeline, GitHub Actions)<br>
-      • <strong>Infrastructure as Code (IaC)</strong> – Terraform, CloudFormation<br>
-      • <strong>Container orchestration</strong> – Kubernetes on cloud (EKS, GKE, AKS)<br>
-      • <strong>Monitoring &amp; Logging</strong> – CloudWatch, Prometheus, Grafana<br>
-      • <strong>Rapid scaling</strong> – Auto-scaling groups respond to load instantly<br><br>
-      <div class="highlight-box">🔄 DevOps Loop: Plan → Code → Build → Test → Release → Deploy → Operate → Monitor → Plan...</div>
+      <strong>Multi-tenancy</strong> means multiple customers (tenants) share the same cloud infrastructure (hardware, servers, databases) but their data and processes are logically separated.<br><br>
+      <em>Example:</em> Gmail serves millions of users on the same infrastructure; each user can't see another's emails.<br><br>
+      <strong>Isolation</strong> ensures that each tenant's data, processes, and resources are kept completely separate from others — even though the underlying hardware is shared. Achieved through: Virtual machines, containers, namespaces, and encryption.
     </div>
   </div>
 
 </div>
 
-<!-- ══════════════ ADDITIONAL Q&A TAB ══════════════ -->
-<div id="tab-addqa" class="tab-content">
-
-  <div style="background:linear-gradient(135deg,#fff7ed,#fce7f3);border-radius:16px;padding:1rem 1.5rem;margin-bottom:1.5rem;border:1.5px solid #fed7aa;">
-    <strong style="color:#c2410c;">➕ Additional Questions</strong> — Extra questions beyond the standard syllabus to strengthen your understanding and prepare for tricky viva questions!
-  </div>
-
-  <div class="qa-section-title">🧪 Practical Concepts</div>
-
-  <div class="qa-item">
-    <div class="qa-question" onclick="toggleQA(this)"><span class="qa-q-text">What is the difference between virsh start, virsh create, and virsh define?<span class="add-badge">EXTRA</span></span><span class="qa-arrow">▼</span></div>
-    <div class="qa-answer">
-      <strong>virsh define &lt;xml&gt;</strong> – Registers a VM from XML config (persistent, survives reboot). VM is defined but NOT started.<br>
-      <strong>virsh start &lt;name&gt;</strong> – Starts a previously defined (persistent) VM.<br>
-      <strong>virsh create &lt;xml&gt;</strong> – Defines AND starts a VM from XML, but it is transient (disappears after shutdown).<br>
-      <strong>virsh shutdown &lt;name&gt;</strong> – Gracefully shuts down a VM.<br>
-      <strong>virsh destroy &lt;name&gt;</strong> – Force-stops a VM (like pulling the power).<br>
-      <strong>virsh list --all</strong> – Lists all VMs (running + stopped).
-      <div class="highlight-box">🖥️ Remember: define = register, start = boot, create = temporary define+start, destroy = force kill.</div>
-    </div>
-  </div>
-
-  <div class="qa-item">
-    <div class="qa-question" onclick="toggleQA(this)"><span class="qa-q-text">Write a Dockerfile for a simple Python web app<span class="add-badge">EXTRA</span></span><span class="qa-arrow">▼</span></div>
-    <div class="qa-answer">
-      <code style="background:#f5f3ff;padding:12px;border-radius:8px;display:block;font-size:0.87rem;line-height:1.8;">
-        FROM python:3.9-slim<br>
-        WORKDIR /app<br>
-        COPY requirements.txt .<br>
-        RUN pip install -r requirements.txt<br>
-        COPY . .<br>
-        EXPOSE 5000<br>
-        CMD ["python", "app.py"]
-      </code><br>
-      <strong>Commands to build and run:</strong><br>
-      <code style="background:#f5f3ff;padding:8px;border-radius:8px;display:block;font-size:0.87rem;">
-        docker build -t myapp .<br>
-        docker run -p 5000:5000 myapp<br>
-        docker ps           # list running containers<br>
-        docker images       # list images<br>
-        docker stop &lt;id&gt;   # stop container
-      </code>
-    </div>
-  </div>
-
-  <div class="qa-item">
-    <div class="qa-question" onclick="toggleQA(this)"><span class="qa-q-text">What is Docker Compose? When do you use it?<span class="add-badge">EXTRA</span></span><span class="qa-arrow">▼</span></div>
-    <div class="qa-answer">
-      <strong>Docker Compose</strong> lets you define and run multi-container Docker applications using a single YAML file (<code>docker-compose.yml</code>).<br><br>
-      <em>Example: A web app + database:</em>
-      <code style="background:#f5f3ff;padding:10px;border-radius:8px;display:block;font-size:0.86rem;margin:10px 0;line-height:1.8;">
-        version: '3'<br>
-        services:<br>
-        &nbsp;&nbsp;web:<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;image: myapp<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;ports: ["5000:5000"]<br>
-        &nbsp;&nbsp;db:<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;image: mongo<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;ports: ["27017:27017"]
-      </code>
-      Run with: <code>docker-compose up</code><br>
-      <div class="highlight-box mint">🐳 Use Compose for local dev/testing of microservices. Kubernetes is used for production orchestration.</div>
-    </div>
-  </div>
-
-  <div class="qa-item">
-    <div class="qa-question" onclick="toggleQA(this)"><span class="qa-q-text">MongoDB Aggregation Pipeline – explain with example<span class="add-badge">EXTRA</span></span><span class="qa-arrow">▼</span></div>
-    <div class="qa-answer">
-      <strong>Aggregation Pipeline</strong> processes documents through multiple stages to produce computed results.<br><br>
-      <strong>Common stages:</strong> $match (filter), $group (group by), $sort, $project (select fields), $limit<br><br>
-      <em>Example – Find average age per city:</em>
-      <code style="background:#f5f3ff;padding:10px;border-radius:8px;display:block;font-size:0.86rem;margin:10px 0;line-height:1.8;">
-        db.users.aggregate([<br>
-        &nbsp;&nbsp;{ $match: { age: { $gt: 18 } } },<br>
-        &nbsp;&nbsp;{ $group: { _id: "$city", avgAge: { $avg: "$age" } } },<br>
-        &nbsp;&nbsp;{ $sort: { avgAge: -1 } }<br>
-        ])
-      </code>
-      <div class="highlight-box">🍃 More powerful than simple find(). Used for reports, analytics, data transformations.</div>
-    </div>
-  </div>
-
-  <div class="qa-item">
-    <div class="qa-question" onclick="toggleQA(this)"><span class="qa-q-text">Symmetric vs Asymmetric Encryption – for Assignment 7<span class="add-badge">EXTRA</span></span><span class="qa-arrow">▼</span></div>
-    <div class="qa-answer">
-      <table>
-        <tr><th></th><th>Symmetric</th><th>Asymmetric</th></tr>
-        <tr><td>Keys</td><td>Same key for encrypt+decrypt</td><td>Public key (encrypt) + Private key (decrypt)</td></tr>
-        <tr><td>Speed</td><td>Fast</td><td>Slow</td></tr>
-        <tr><td>Key sharing</td><td>Problem (key must be shared securely)</td><td>No problem (public key can be shared openly)</td></tr>
-        <tr><td>Examples</td><td>AES, DES, 3DES</td><td>RSA, ECC, DSA</td></tr>
-        <tr><td>Use case</td><td>Bulk data encryption</td><td>Key exchange, digital signatures</td></tr>
-      </table>
-      <div class="highlight-box">🔑 In practice: Asymmetric is used to exchange a symmetric key, then symmetric handles the bulk data (hybrid approach like TLS/HTTPS).</div>
-    </div>
-  </div>
-
-  <div class="qa-item">
-    <div class="qa-question" onclick="toggleQA(this)"><span class="qa-q-text">Hadoop HDFS commands – commonly used<span class="add-badge">EXTRA</span></span><span class="qa-arrow">▼</span></div>
-    <div class="qa-answer">
-      <code style="background:#f5f3ff;padding:12px;border-radius:8px;display:block;font-size:0.86rem;line-height:2;">
-        hdfs dfs -ls /              # list files in HDFS root<br>
-        hdfs dfs -mkdir /mydir      # create directory<br>
-        hdfs dfs -put file.txt /mydir    # upload file to HDFS<br>
-        hdfs dfs -get /mydir/file.txt .  # download file from HDFS<br>
-        hdfs dfs -cat /mydir/file.txt    # view file content<br>
-        hdfs dfs -rm /mydir/file.txt     # delete file<br>
-        hdfs dfs -du -h /mydir           # disk usage<br>
-        hdfs dfsadmin -report            # cluster health
-      </code>
-      <div class="highlight-box mint">📁 Remember: HDFS commands mirror Linux commands but are prefixed with <code>hdfs dfs</code>.</div>
-    </div>
-  </div>
-
-  <div class="qa-section-title" style="margin-top:2rem">🖥️ Virtualization Deep Dive</div>
-
-  <div class="qa-item">
-    <div class="qa-question" onclick="toggleQA(this)"><span class="qa-q-text">What are namespaces in Linux? How do they enable containers?<span class="add-badge">EXTRA</span></span><span class="qa-arrow">▼</span></div>
-    <div class="qa-answer">
-      <strong>Linux Namespaces</strong> provide isolation for various system resources. Each namespace makes a process think it has its own isolated view of that resource.<br><br>
-      <strong>Types of Namespaces:</strong><br>
-      • <strong>PID namespace</strong> – Process IDs isolated (container has its own PID 1)<br>
-      • <strong>NET namespace</strong> – Network interfaces, ports isolated<br>
-      • <strong>MNT namespace</strong> – Filesystem mount points isolated<br>
-      • <strong>UTS namespace</strong> – Hostname and domain name isolated<br>
-      • <strong>IPC namespace</strong> – Inter-process communication isolated<br>
-      • <strong>USER namespace</strong> – User/group IDs isolated<br><br>
-      Docker uses these + c-groups to create lightweight, isolated containers without a separate OS.
-    </div>
-  </div>
-
-  <div class="qa-item">
-    <div class="qa-question" onclick="toggleQA(this)"><span class="qa-q-text">What is the difference between a Docker image and a Docker container?<span class="add-badge">EXTRA</span></span><span class="qa-arrow">▼</span></div>
-    <div class="qa-answer">
-      <strong>Docker Image</strong> – A read-only template/blueprint. Built from a Dockerfile. Stored in a registry. Like a class in OOP.<br><br>
-      <strong>Docker Container</strong> – A running instance of an image. Has a writable layer on top. Multiple containers can run from one image. Like an object in OOP.<br><br>
-      <div class="highlight-box">📦 Image : Container = Class : Object = Recipe : Cake<br>You can bake multiple cakes (containers) from one recipe (image).</div>
-    </div>
-  </div>
-
-  <div class="qa-section-title" style="margin-top:2rem">☁️ Cloud &amp; AWS Deep Dive</div>
-
-  <div class="qa-item">
-    <div class="qa-question" onclick="toggleQA(this)"><span class="qa-q-text">What are the S3 storage classes? When to use each?<span class="add-badge">EXTRA</span></span><span class="qa-arrow">▼</span></div>
-    <div class="qa-answer">
-      <table>
-        <tr><th>Storage Class</th><th>Use Case</th><th>Cost</th></tr>
-        <tr><td>S3 Standard</td><td>Frequently accessed data</td><td>Highest</td></tr>
-        <tr><td>S3 Intelligent-Tiering</td><td>Unknown access patterns</td><td>Auto-optimized</td></tr>
-        <tr><td>S3 Standard-IA</td><td>Infrequent access, quick retrieval</td><td>Lower storage, retrieval fee</td></tr>
-        <tr><td>S3 Glacier</td><td>Archival, retrieval in minutes-hours</td><td>Very cheap</td></tr>
-        <tr><td>S3 Glacier Deep Archive</td><td>Long-term archival (years)</td><td>Cheapest (retrieval in hours)</td></tr>
-      </table>
-    </div>
-  </div>
-
-  <div class="qa-item">
-    <div class="qa-question" onclick="toggleQA(this)"><span class="qa-q-text">What is an EC2 instance type? Explain t2.micro.<span class="add-badge">EXTRA</span></span><span class="qa-arrow">▼</span></div>
-    <div class="qa-answer">
-      EC2 instance types define the hardware (CPU, RAM, storage, network) of a virtual server.<br><br>
-      <strong>Naming: [Family][Generation].[Size]</strong><br>
-      <code>t2.micro</code>: t = burstable general purpose, 2 = 2nd generation, micro = smallest<br><br>
-      <strong>Families:</strong><br>
-      • <strong>t</strong> (t2, t3) – General purpose, burstable CPU<br>
-      • <strong>m</strong> (m5, m6) – Balanced compute/memory<br>
-      • <strong>c</strong> (c5, c6) – Compute optimized<br>
-      • <strong>r</strong> (r5, r6) – Memory optimized<br>
-      • <strong>p, g</strong> – GPU instances (ML/AI)<br>
-      <div class="highlight-box mint">🆓 t2.micro is in the AWS Free Tier — 750 hours/month free for 12 months.</div>
-    </div>
-  </div>
-
-  <div class="qa-item">
-    <div class="qa-question" onclick="toggleQA(this)"><span class="qa-q-text">What is auto-scaling in AWS? How does it work?<span class="add-badge">EXTRA</span></span><span class="qa-arrow">▼</span></div>
-    <div class="qa-answer">
-      <strong>Auto Scaling</strong> automatically adjusts the number of EC2 instances based on demand.<br><br>
-      <strong>Components:</strong><br>
-      • <strong>Launch Template</strong> – Defines what type of EC2 instance to launch<br>
-      • <strong>Auto Scaling Group (ASG)</strong> – Group of EC2 instances managed together<br>
-      • <strong>Scaling Policies</strong> – Rules that trigger scaling (based on CPU%, requests, schedule)<br>
-      • <strong>Min/Max/Desired capacity</strong> – Boundaries for scaling<br><br>
-      <em>Example:</em> If CPU &gt; 70% → add 2 instances. If CPU &lt; 30% → remove 1 instance.<br>
-      <div class="highlight-box">📈 Auto Scaling + Load Balancer = highly available, cost-efficient architecture. This is how Netflix/Amazon handle traffic spikes.</div>
-    </div>
-  </div>
-
-  <div class="qa-section-title" style="margin-top:2rem">🔗 Web Services Deep Dive</div>
-
-  <div class="qa-item">
-    <div class="qa-question" onclick="toggleQA(this)"><span class="qa-q-text">What is REST API? How do you design a RESTful API?<span class="add-badge">EXTRA</span></span><span class="qa-arrow">▼</span></div>
-    <div class="qa-answer">
-      <strong>REST (Representational State Transfer)</strong> is an architectural style for designing networked applications using HTTP.<br><br>
-      <strong>6 REST Constraints:</strong><br>
-      1. Client-Server – separation of concerns<br>
-      2. Stateless – no session stored on server<br>
-      3. Cacheable – responses should indicate cacheability<br>
-      4. Uniform Interface – consistent URL structure<br>
-      5. Layered System – can have proxies, load balancers between client-server<br>
-      6. Code on Demand (optional) – server can send executable code<br><br>
-      <strong>RESTful URL Design:</strong><br>
-      <code>GET /users</code> → list all users<br>
-      <code>GET /users/5</code> → get user 5<br>
-      <code>POST /users</code> → create user<br>
-      <code>PUT /users/5</code> → update user 5<br>
-      <code>DELETE /users/5</code> → delete user 5
-    </div>
-  </div>
-
-  <div class="qa-item">
-    <div class="qa-question" onclick="toggleQA(this)"><span class="qa-q-text">What is the difference between HTTP status codes 200, 201, 400, 401, 403, 404, 500?<span class="add-badge">EXTRA</span></span><span class="qa-arrow">▼</span></div>
-    <div class="qa-answer">
-      <table>
-        <tr><th>Code</th><th>Meaning</th><th>When used</th></tr>
-        <tr><td>200 OK</td><td>Success</td><td>GET or PUT succeeded</td></tr>
-        <tr><td>201 Created</td><td>Resource created</td><td>POST succeeded, new resource created</td></tr>
-        <tr><td>400 Bad Request</td><td>Invalid input</td><td>Missing/invalid request body</td></tr>
-        <tr><td>401 Unauthorized</td><td>Not authenticated</td><td>No valid token/login required</td></tr>
-        <tr><td>403 Forbidden</td><td>Not authorized</td><td>Authenticated but lacks permission</td></tr>
-        <tr><td>404 Not Found</td><td>Resource missing</td><td>URL doesn't exist</td></tr>
-        <tr><td>500 Internal Server Error</td><td>Server crash</td><td>Bug/exception on server side</td></tr>
-      </table>
-    </div>
-  </div>
-
-  <div class="qa-section-title" style="margin-top:2rem">📊 Big Data &amp; CloudSim</div>
-
-  <div class="qa-item">
-    <div class="qa-question" onclick="toggleQA(this)"><span class="qa-q-text">What scheduling policies does CloudSim support?<span class="add-badge">EXTRA</span></span><span class="qa-arrow">▼</span></div>
-    <div class="qa-answer">
-      CloudSim supports two main cloudlet scheduling policies:<br><br>
-      <strong>1. CloudletSchedulerSpaceShared</strong><br>
-      &nbsp;• One cloudlet at a time per VM core<br>
-      &nbsp;• Others wait in queue (like a single-lane road)<br>
-      &nbsp;• Predictable execution but lower parallelism<br><br>
-      <strong>2. CloudletSchedulerTimeShared</strong><br>
-      &nbsp;• All cloudlets run simultaneously, sharing CPU time (like multitasking)<br>
-      &nbsp;• Each gets a fraction of CPU<br>
-      &nbsp;• Higher parallelism but each task takes longer<br><br>
-      And two VM allocation policies for hosts:<br>
-      <strong>VmAllocationPolicySimple</strong> – First fit allocation<br>
-      <strong>VmAllocationPolicyBestFit</strong> – Best fit allocation
-    </div>
-  </div>
-
-  <div class="qa-item">
-    <div class="qa-question" onclick="toggleQA(this)"><span class="qa-q-text">Explain ACID vs BASE in databases<span class="add-badge">EXTRA</span></span><span class="qa-arrow">▼</span></div>
-    <div class="qa-answer">
-      <strong>ACID</strong> (used in SQL/relational DBs):<br>
-      • <strong>A</strong>tomicity – all or nothing (transaction fully succeeds or fully fails)<br>
-      • <strong>C</strong>onsistency – data always valid per rules<br>
-      • <strong>I</strong>solation – concurrent transactions don't interfere<br>
-      • <strong>D</strong>urability – committed data persists even after crash<br><br>
-      <strong>BASE</strong> (used in NoSQL DBs):<br>
-      • <strong>B</strong>asically <strong>A</strong>vailable – system is always available<br>
-      • <strong>S</strong>oft state – state may change without input (replication in progress)<br>
-      • <strong>E</strong>ventually consistent – will eventually reach consistency<br>
-      <div class="highlight-box peach">💡 ACID = bank transactions (strict). BASE = social media feed (availability &gt; perfect consistency).</div>
-    </div>
-  </div>
-
-</div>
-
-<!-- ══════════════ FLASHCARD TAB ══════════════ -->
+<!-- ═══════════════════ FLASHCARD TAB ═══════════════════ -->
 <div id="tab-flashcard" class="tab-content">
+
   <div class="flashcard-controls">
     <div class="fc-counter">Card <span id="fc-current">1</span> of <span id="fc-total">0</span></div>
     <select class="fc-filter" id="fc-filter" onchange="filterFlashcards()">
       <option value="all">All Topics</option>
-      <option value="u1">Unit 1 – Cloud Fundamentals</option>
-      <option value="u2">Unit 2 – Virtualization</option>
-      <option value="u3">Unit 3 – Data &amp; CloudSim</option>
-      <option value="u4">Unit 4 – SOA &amp; Web Services</option>
-      <option value="u5">Unit 5 – Security</option>
-      <option value="u6">Unit 6 – Advanced</option>
-      <option value="prac">Practicals</option>
+      <option value="virt">Virtualization</option>
+      <option value="cloud">Cloud Models</option>
+      <option value="scale">Scaling</option>
+      <option value="sec">Security</option>
+      <option value="res">Optimization</option>
+      <option value="big">Big Data</option>
     </select>
   </div>
 
@@ -1252,360 +938,48 @@
     <div class="stat-pill"><div class="stat-dot" style="background:var(--mint)"></div><span id="stat-left">0</span> to go</div>
     <div class="stat-pill"><div class="stat-dot" style="background:var(--pink)"></div><span id="stat-total">0</span> total</div>
   </div>
-</div>
-
-<!-- ══════════════ REVISION TAB ══════════════ -->
-<div id="tab-revision" class="tab-content">
-
-  <div style="background:linear-gradient(135deg,#f0fdfa,#eff6ff);border-radius:16px;padding:1rem 1.5rem;margin-bottom:1.5rem;border:1.5px solid var(--blue-light);">
-    <strong style="color:#0369a1;">📖 Theory Revision Points</strong> — Click any unit to expand. Use this for quick last-minute revision!
-  </div>
-
-  <!-- UNIT 1 -->
-  <div class="rev-unit" onclick="toggleRevUnit(this)">
-    <div class="rev-unit-header">
-      <div class="rev-unit-title">☁️ <span>Unit 1 – Cloud Fundamentals</span><span class="rev-unit-badge" style="background:#e0f2fe;color:#0369a1;">Theory</span></div>
-      <span class="rev-arrow">▼</span>
-    </div>
-    <div class="rev-body">
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#a78bfa"></div><div><div>NIST 5 Characteristics: On-demand self-service | Broad network access | Resource pooling | Rapid elasticity | Measured service</div></div></div>
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#a78bfa"></div><div><div>Service Models: IaaS (user manages OS+apps), PaaS (user manages apps only), SaaS (user just uses it). Control is inverse of this.</div><div class="rev-sub">IaaS examples: AWS EC2 | PaaS: Heroku, GAE | SaaS: Gmail, Zoom</div></div></div>
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#a78bfa"></div><div><div>Deployment Models: Public (shared, cheap), Private (dedicated, secure), Hybrid (both, cloud bursting), Community (shared compliance)</div></div></div>
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#a78bfa"></div><div><div>SLA = formal contract: uptime guarantee (99.9%), response time, penalties, security requirements</div></div></div>
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#a78bfa"></div><div><div>Multi-tenancy: Multiple customers share infrastructure but are logically isolated. Isolation achieved via VMs, containers, namespaces, encryption.</div></div></div>
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#a78bfa"></div><div><div>Cloud Bursting: Private cloud spills over to public cloud during demand spikes (hybrid cloud feature)</div></div></div>
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#a78bfa"></div><div><div>Horizontal Scaling = add more machines (cheaper, no downtime, unlimited). Vertical Scaling = upgrade one machine (expensive, has hardware ceiling, needs downtime)</div></div></div>
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#a78bfa"></div><div><div>Federated Cloud: Multiple providers interconnected with shared standards for seamless workload migration. Multi-cloud: Multiple providers used independently.</div></div></div>
-    </div>
-  </div>
-
-  <!-- UNIT 2 -->
-  <div class="rev-unit" onclick="toggleRevUnit(this)">
-    <div class="rev-unit-header">
-      <div class="rev-unit-title">🖥️ <span>Unit 2 – Virtualization &amp; Containers</span><span class="rev-unit-badge" style="background:#ede9fe;color:#7c3aed;">Theory</span></div>
-      <span class="rev-arrow">▼</span>
-    </div>
-    <div class="rev-body">
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#34d399"></div><div><div>Virtualization Types: Full | Para | OS-level (containers) | Hardware-assisted | Storage | Network</div></div></div>
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#34d399"></div><div><div>Hypervisor Type 1 (bare-metal): runs directly on hardware, more secure, higher performance. Examples: KVM, ESXi, Hyper-V</div></div></div>
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#34d399"></div><div><div>Hypervisor Type 2 (hosted): runs on top of host OS, easier setup, lower performance. Examples: VirtualBox, VMware Workstation</div></div></div>
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#34d399"></div><div><div>KVM: Linux kernel module, Type 1, uses QEMU for I/O emulation, libvirt for management</div><div class="rev-sub">Key virsh commands: list --all | start | shutdown | destroy | define | create | suspend | resume</div></div></div>
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#34d399"></div><div><div>KVM vs VirtualBox: KVM = Type 1, Linux only, production use. VirtualBox = Type 2, cross-platform, dev/testing.</div></div></div>
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#34d399"></div><div><div>QEMU: Open-source emulator for I/O devices. Works with KVM (KVM = CPU/memory, QEMU = I/O)</div></div></div>
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#34d399"></div><div><div>LibVirt: API/toolkit for managing multiple hypervisors (KVM, Xen, QEMU, VirtualBox) through one interface</div></div></div>
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#34d399"></div><div><div>C-groups: Linux feature to limit/isolate resource usage (CPU, RAM, I/O) per process group. Used by Docker.</div></div></div>
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#34d399"></div><div><div>Namespaces: PID, NET, MNT, UTS, IPC, USER. Provide process-level isolation — core of how containers work.</div></div></div>
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#34d399"></div><div><div>Docker Architecture: Client (CLI) → REST API → Daemon (dockerd) → Registry. Objects: Image, Container, Volume, Network</div></div></div>
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#34d399"></div><div><div>Container vs VM: Container = MBs, seconds startup, shared kernel. VM = GBs, minutes startup, own OS.</div></div></div>
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#34d399"></div><div><div>AWS: EC2 = compute (VMs), EBS = block storage (virtual hard drive), S3 = object storage (files, backups)</div></div></div>
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#34d399"></div><div><div>VM Migration: Live migration (no downtime, uses memory copy) vs Cold migration (VM powered off first)</div></div></div>
-    </div>
-  </div>
-
-  <!-- UNIT 3 -->
-  <div class="rev-unit" onclick="toggleRevUnit(this)">
-    <div class="rev-unit-header">
-      <div class="rev-unit-title">📊 <span>Unit 3 – Data Storage &amp; CloudSim</span><span class="rev-unit-badge" style="background:#dcfce7;color:#15803d;">Theory</span></div>
-      <span class="rev-arrow">▼</span>
-    </div>
-    <div class="rev-body">
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#fb923c"></div><div><div>SQL vs NoSQL: SQL = fixed schema, ACID, vertical scaling. NoSQL = flexible schema, BASE, horizontal scaling.</div><div class="rev-sub">SQL: MySQL, PostgreSQL | NoSQL: MongoDB, Redis, Cassandra, DynamoDB</div></div></div>
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#fb923c"></div><div><div>MongoDB: Document DB, stores BSON (JSON-like). Collection=Table, Document=Row, Field=Column, _id=Primary Key</div><div class="rev-sub">CRUD: insertOne/Many | find | updateOne ($set) | deleteOne | aggregate</div></div></div>
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#fb923c"></div><div><div>MapReduce: Map (split into key-value) → Shuffle (group by key) → Reduce (aggregate). Used in Hadoop for parallel processing.</div></div></div>
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#fb923c"></div><div><div>HDFS: NameNode (metadata, block locations) + DataNode (actual data). Default block size = 128MB. Replication factor = 3.</div></div></div>
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#fb923c"></div><div><div>CloudSim: Datacenter → Host → VM → Cloudlet. DatacenterBroker matches cloudlets to VMs. Scheduling: SpaceShared or TimeShared.</div></div></div>
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#fb923c"></div><div><div>Big Data 5 V's: Volume (how much), Velocity (how fast), Variety (types), Veracity (quality), Value (usefulness)</div></div></div>
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#fb923c"></div><div><div>1 PB = 1,024 TB = 1,048,576 GB. Velocity example: Twitter 500M tweets/day, stock market thousands of trades/sec.</div></div></div>
-    </div>
-  </div>
-
-  <!-- UNIT 4 -->
-  <div class="rev-unit" onclick="toggleRevUnit(this)">
-    <div class="rev-unit-header">
-      <div class="rev-unit-title">🔗 <span>Unit 4 – SOA &amp; Web Services</span><span class="rev-unit-badge" style="background:#e0f2fe;color:#0369a1;">Theory</span></div>
-      <span class="rev-arrow">▼</span>
-    </div>
-    <div class="rev-body">
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#60a5fa"></div><div><div>SOA: Loose coupling, Reusability, Interoperability, Abstraction, Discoverability, Composability</div></div></div>
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#60a5fa"></div><div><div>SOAP: Protocol, XML only, WS-Security, stateful possible, used in banking/enterprise. REST: Architectural style, any format (JSON preferred), stateless, lightweight.</div></div></div>
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#60a5fa"></div><div><div>WSDL: XML document describing a service (operations, input/output, endpoint URL, protocol)</div></div></div>
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#60a5fa"></div><div><div>UDDI: Directory for publishing and discovering web services. Flow: Provider → WSDL → UDDI → Consumer → calls service</div></div></div>
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#60a5fa"></div><div><div>HTTP Methods: GET (read), POST (create), PUT (replace), PATCH (partial update), DELETE (remove)</div></div></div>
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#60a5fa"></div><div><div>REST Constraints: Client-Server | Stateless | Cacheable | Uniform Interface | Layered System | Code on Demand</div></div></div>
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#60a5fa"></div><div><div>HTTP Status Codes: 200 OK | 201 Created | 400 Bad Request | 401 Unauthorized | 403 Forbidden | 404 Not Found | 500 Server Error</div></div></div>
-    </div>
-  </div>
-
-  <!-- UNIT 5 -->
-  <div class="rev-unit" onclick="toggleRevUnit(this)">
-    <div class="rev-unit-header">
-      <div class="rev-unit-title">🔐 <span>Unit 5 – Security &amp; Privacy</span><span class="rev-unit-badge" style="background:#fef9c3;color:#854d0e;">Theory</span></div>
-      <span class="rev-arrow">▼</span>
-    </div>
-    <div class="rev-body">
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#fbbf24"></div><div><div>IAM: Root user = full access (use sparingly). IAM user = restricted by policies. Least privilege principle.</div></div></div>
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#fbbf24"></div><div><div>Security Group vs NACL: SG = instance level, stateful, allow only. NACL = subnet level, stateless, allow + deny, ordered rules.</div></div></div>
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#fbbf24"></div><div><div>Privacy by Design: 7 principles — proactive, privacy as default, embedded into design, full functionality, end-to-end security, visible, user-centric</div></div></div>
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#fbbf24"></div><div><div>Authentication vs Authorization: AuthN = "Who are you?" (login). AuthZ = "What can you do?" (permissions). Authentication first.</div></div></div>
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#fbbf24"></div><div><div>Encryption: Symmetric (AES) = same key for encrypt+decrypt, fast. Asymmetric (RSA) = public key encrypts, private key decrypts.</div></div></div>
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#fbbf24"></div><div><div>AWS S3 Encryption: SSE-S3 (AWS manages keys), SSE-KMS (KMS manages keys), SSE-C (you manage keys), Client-Side.</div></div></div>
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#fbbf24"></div><div><div>Security Attacks: DoS/DDoS (overwhelm server), Man-in-the-Middle (intercept communication), SQL Injection, Phishing</div></div></div>
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#fbbf24"></div><div><div>Resource Optimization Algorithms: First Fit | Best Fit | Round Robin | Genetic Algorithm | PSO | FCFS | Throttled</div></div></div>
-    </div>
-  </div>
-
-  <!-- UNIT 6 -->
-  <div class="rev-unit" onclick="toggleRevUnit(this)">
-    <div class="rev-unit-header">
-      <div class="rev-unit-title">🚀 <span>Unit 6 – Advanced Cloud Topics</span><span class="rev-unit-badge" style="background:#fce7f3;color:#be185d;">Theory</span></div>
-      <span class="rev-arrow">▼</span>
-    </div>
-    <div class="rev-body">
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#ff6b9d"></div><div><div>Serverless: No server management, pay per execution, auto-scales to zero, event-driven. AWS Lambda, Google Cloud Functions.</div></div></div>
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#ff6b9d"></div><div><div>Multi-cloud: Multiple providers used independently (no integration). Federated: Interconnected with shared standards, seamless migration.</div></div></div>
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#ff6b9d"></div><div><div>DevOps + Cloud: CI/CD (CodePipeline, GitHub Actions), IaC (Terraform, CloudFormation), Kubernetes (EKS, GKE), Monitoring (CloudWatch)</div></div></div>
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#ff6b9d"></div><div><div>AI in Cloud: ML as a Service — AWS SageMaker, Google Vertex AI, Azure ML. Enables training models without owning hardware.</div></div></div>
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#ff6b9d"></div><div><div>Edge Computing: Processing data near the source (IoT devices) rather than sending to cloud. Reduces latency. Used in self-driving cars, smart cameras.</div></div></div>
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#ff6b9d"></div><div><div>Deploy on Cloud: Choose service model → Choose provider → Create instances → Configure security (IAM, SG) → Deploy app → Set up load balancer + auto-scaling → Monitor.</div></div></div>
-    </div>
-  </div>
-
-  <!-- PRACTICALS REVISION -->
-  <div style="background:linear-gradient(135deg,#fff7ed,#fce7f3);border-radius:16px;padding:1rem 1.5rem;margin:1.5rem 0 0.75rem;border:1.5px solid #fed7aa;">
-    <strong style="color:#c2410c;">🧪 Practical Revision Points</strong>
-  </div>
-
-  <div class="rev-unit rev-practical" onclick="toggleRevUnit(this)">
-    <div class="rev-unit-header">
-      <div class="rev-unit-title">🍃 <span>A1 – MongoDB</span><span class="rev-unit-badge" style="background:#dcfce7;color:#15803d;">Practical</span></div>
-      <span class="rev-arrow">▼</span>
-    </div>
-    <div class="rev-body">
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#fb923c"></div><div><div>Start MongoDB: <code>mongod</code> (server) | <code>mongo</code> or <code>mongosh</code> (client)</div></div></div>
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#fb923c"></div><div><div>Basics: <code>show dbs</code> | <code>use mydb</code> | <code>show collections</code> | <code>db.dropDatabase()</code></div></div></div>
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#fb923c"></div><div><div>CRUD: insertOne/Many | find({query}) | updateOne({filter},{$set:{field:val}}) | deleteOne({filter})</div></div></div>
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#fb923c"></div><div><div>Aggregation: aggregate([{$match},{$group},{$sort},{$project}]) for analytics/reports</div></div></div>
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#fb923c"></div><div><div>Indexing: <code>db.coll.createIndex({field:1})</code> — speeds up queries on large collections</div></div></div>
-    </div>
-  </div>
-
-  <div class="rev-unit rev-practical" onclick="toggleRevUnit(this)">
-    <div class="rev-unit-header">
-      <div class="rev-unit-title">💻 <span>A2 – VirtualBox &amp; A3 – KVM</span><span class="rev-unit-badge" style="background:#ede9fe;color:#7c3aed;">Practical</span></div>
-      <span class="rev-arrow">▼</span>
-    </div>
-    <div class="rev-body">
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#fb923c"></div><div><div>VirtualBox: GUI-based VM creation. Create → Configure RAM/CPU/Storage → Install ISO → Start. Snapshot = save VM state.</div></div></div>
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#fb923c"></div><div><div>KVM requirement: CPU must support VT-x (Intel) or AMD-V. Check: <code>egrep -c '(vmx|svm)' /proc/cpuinfo</code></div></div></div>
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#fb923c"></div><div><div>Install KVM: <code>apt install qemu-kvm libvirt-daemon-system virt-manager</code></div></div></div>
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#fb923c"></div><div><div>Key virsh commands: <code>virsh list --all</code> | <code>virsh start NAME</code> | <code>virsh shutdown NAME</code> | <code>virsh define vm.xml</code> | <code>virsh suspend/resume NAME</code></div></div></div>
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#fb923c"></div><div><div>VM XML defines: name, memory, vCPU, disk path, network interface, boot order</div></div></div>
-    </div>
-  </div>
-
-  <div class="rev-unit rev-practical" onclick="toggleRevUnit(this)">
-    <div class="rev-unit-header">
-      <div class="rev-unit-title">🐳 <span>A4 &amp; A5 – Docker</span><span class="rev-unit-badge" style="background:#e0f2fe;color:#0369a1;">Practical</span></div>
-      <span class="rev-arrow">▼</span>
-    </div>
-    <div class="rev-body">
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#fb923c"></div><div><div>Basic commands: <code>docker pull</code> | <code>docker images</code> | <code>docker run -it ubuntu bash</code> | <code>docker ps</code> | <code>docker stop</code> | <code>docker rm</code></div></div></div>
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#fb923c"></div><div><div>Dockerfile: FROM | RUN | COPY | WORKDIR | EXPOSE | CMD | ENV | ADD</div></div></div>
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#fb923c"></div><div><div>Build &amp; run: <code>docker build -t myapp .</code> | <code>docker run -p 8080:80 myapp</code></div></div></div>
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#fb923c"></div><div><div>Volumes: <code>docker run -v /host/path:/container/path myapp</code> — persist data outside container</div></div></div>
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#fb923c"></div><div><div>Docker Compose: <code>docker-compose up</code> | <code>docker-compose down</code> | <code>docker-compose build</code>. Defined in docker-compose.yml</div></div></div>
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#fb923c"></div><div><div>Networking: bridge (default), host, none. Containers on same bridge network can talk to each other by service name.</div></div></div>
-    </div>
-  </div>
-
-  <div class="rev-unit rev-practical" onclick="toggleRevUnit(this)">
-    <div class="rev-unit-header">
-      <div class="rev-unit-title">🔬 <span>A6 – CloudSim</span><span class="rev-unit-badge" style="background:#f3e8ff;color:#7e22ce;">Practical</span></div>
-      <span class="rev-arrow">▼</span>
-    </div>
-    <div class="rev-body">
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#fb923c"></div><div><div>CloudSim is a Java library. Main class extends a simulation class and uses CloudSim.init() to start.</div></div></div>
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#fb923c"></div><div><div>Steps: 1) Init CloudSim 2) Create Datacenter (hosts) 3) Create Broker 4) Create VMs 5) Create Cloudlets 6) Submit to broker 7) Run simulation 8) Print results</div></div></div>
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#fb923c"></div><div><div>Host parameters: RAM, bandwidth, storage, CPU (MIPS), scheduling policy</div></div></div>
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#fb923c"></div><div><div>VM parameters: RAM, bandwidth, MIPS, number of CPUs, CloudletScheduler (SpaceShared/TimeShared)</div></div></div>
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#fb923c"></div><div><div>Cloudlet parameters: length (MIPS), file size (bytes), output size, utilization model</div></div></div>
-    </div>
-  </div>
-
-  <div class="rev-unit rev-practical" onclick="toggleRevUnit(this)">
-    <div class="rev-unit-header">
-      <div class="rev-unit-title">🔑 <span>A7 – Encryption &amp; Decryption</span><span class="rev-unit-badge" style="background:#fef9c3;color:#854d0e;">Practical</span></div>
-      <span class="rev-arrow">▼</span>
-    </div>
-    <div class="rev-body">
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#fb923c"></div><div><div>AES (Symmetric): Same key for encrypt and decrypt. Key sizes: 128, 192, 256 bits. Very fast, used for bulk data.</div></div></div>
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#fb923c"></div><div><div>RSA (Asymmetric): Public key encrypts, private key decrypts. Used for key exchange, digital signatures.</div></div></div>
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#fb923c"></div><div><div>Python: <code>from Crypto.Cipher import AES</code> | <code>cipher = AES.new(key, AES.MODE_CBC, iv)</code> | <code>cipher.encrypt(plaintext)</code></div></div></div>
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#fb923c"></div><div><div>Hash ≠ Encryption. Hash is one-way (SHA-256, MD5). Encryption is two-way (reversible with key).</div></div></div>
-    </div>
-  </div>
-
-  <div class="rev-unit rev-practical" onclick="toggleRevUnit(this)">
-    <div class="rev-unit-header">
-      <div class="rev-unit-title">🐘 <span>A8 – Hadoop</span><span class="rev-unit-badge" style="background:#dcfce7;color:#15803d;">Practical</span></div>
-      <span class="rev-arrow">▼</span>
-    </div>
-    <div class="rev-body">
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#fb923c"></div><div><div>Start Hadoop: <code>start-dfs.sh</code> | <code>start-yarn.sh</code> | <code>jps</code> (check running Java processes)</div></div></div>
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#fb923c"></div><div><div>HDFS commands: <code>hdfs dfs -put file /path</code> | <code>hdfs dfs -ls /</code> | <code>hdfs dfs -cat /file</code> | <code>hdfs dfs -get /file .</code></div></div></div>
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#fb923c"></div><div><div>MapReduce: Mapper class (map method) + Reducer class (reduce method). Run jar: <code>hadoop jar myapp.jar input output</code></div></div></div>
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#fb923c"></div><div><div>Word Count example: Map (word, 1) → Shuffle (group same words) → Reduce (word, total count)</div></div></div>
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#fb923c"></div><div><div>Access HDFS UI: http://localhost:9870 (NameNode UI) | YARN UI: http://localhost:8088</div></div></div>
-    </div>
-  </div>
-
-  <div class="rev-unit rev-practical" onclick="toggleRevUnit(this)">
-    <div class="rev-unit-header">
-      <div class="rev-unit-title">☁️ <span>A9 – Amazon Web Services</span><span class="rev-unit-badge" style="background:#fff7ed;color:#c2410c;">Practical</span></div>
-      <span class="rev-arrow">▼</span>
-    </div>
-    <div class="rev-body">
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#fb923c"></div><div><div>EC2: Launch instance → Choose AMI (Ubuntu) → Choose type (t2.micro) → Configure → Add storage → Security Group → Key Pair → Launch</div></div></div>
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#fb923c"></div><div><div>Connect EC2: <code>ssh -i keypair.pem ubuntu@&lt;public-ip&gt;</code></div></div></div>
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#fb923c"></div><div><div>S3: Create bucket → Upload files → Set permissions → Enable versioning → Configure encryption</div></div></div>
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#fb923c"></div><div><div>IAM: Create user → Attach policy (AmazonS3FullAccess, EC2FullAccess etc.) → Generate access keys for CLI</div></div></div>
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#fb923c"></div><div><div>Security Group: Add inbound rules — SSH (port 22), HTTP (port 80), HTTPS (port 443), Custom (your app port)</div></div></div>
-    </div>
-  </div>
-
-  <div class="rev-unit rev-practical" onclick="toggleRevUnit(this)">
-    <div class="rev-unit-header">
-      <div class="rev-unit-title">🔗 <span>A10 – RESTful &amp; SOAP Web Services</span><span class="rev-unit-badge" style="background:#e0f2fe;color:#0369a1;">Practical</span></div>
-      <span class="rev-arrow">▼</span>
-    </div>
-    <div class="rev-body">
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#fb923c"></div><div><div>REST API (Python Flask): <code>@app.route('/users', methods=['GET'])</code> → return jsonify(data)</div></div></div>
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#fb923c"></div><div><div>Test REST: Use Postman or curl — <code>curl -X GET http://localhost:5000/users</code> | <code>curl -X POST -H "Content-Type: application/json" -d '{"name":"Alice"}' http://localhost:5000/users</code></div></div></div>
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#fb923c"></div><div><div>SOAP: XML-based, uses WSDL. Python: <code>pip install zeep</code> → <code>from zeep import Client</code> → <code>client = Client(wsdl_url)</code></div></div></div>
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#fb923c"></div><div><div>SOAP message structure: Envelope → Header (optional) + Body (required) + Fault (error info)</div></div></div>
-      <div class="rev-topic"><div class="rev-topic-bullet" style="background:#fb923c"></div><div><div>Key difference to remember for viva: REST = stateless, flexible, JSON. SOAP = strict protocol, XML, enterprise-grade security.</div></div></div>
-    </div>
-  </div>
 
 </div>
 
 <script>
-// ── FLASHCARD DATA ──
 const ALL_CARDS = [
-  // Unit 1
-  { cat: 'u1', q: 'What are the NIST 5 essential characteristics of cloud?', a: '1. On-demand self-service 2. Broad network access 3. Resource pooling 4. Rapid elasticity 5. Measured service (pay-as-you-go)' },
-  { cat: 'u1', q: 'IaaS vs PaaS vs SaaS – who manages what?', a: 'IaaS: you manage OS+apps. PaaS: you manage apps only. SaaS: you just use it. Vendor control increases from IaaS→SaaS.' },
-  { cat: 'u1', q: 'What are the 4 cloud deployment models?', a: 'Public (shared, cheap), Private (dedicated, secure), Hybrid (both; supports cloud bursting), Community (shared compliance goals).' },
-  { cat: 'u1', q: 'What is SLA?', a: 'Service Level Agreement – formal contract defining uptime guarantee, response time, performance metrics, penalties and security obligations. E.g., 99.9% uptime.' },
-  { cat: 'u1', q: 'What is multi-tenancy?', a: 'Multiple customers share the same cloud infrastructure but are logically isolated. Example: Gmail serves millions on shared servers; you cannot see others\' emails.' },
-  { cat: 'u1', q: 'Horizontal vs Vertical scaling – which is cheaper?', a: 'Horizontal (scale out) = add more machines. Cheaper, no downtime, unlimited. Vertical (scale up) = upgrade one machine. Expensive, has hardware ceiling.' },
-  { cat: 'u1', q: 'What is cloud bursting?', a: 'A hybrid cloud technique where a private cloud spills over to a public cloud when demand exceeds private capacity. Handles traffic spikes cost-effectively.' },
-  { cat: 'u1', q: 'Federated cloud vs Multi-cloud?', a: 'Multi-cloud: multiple providers used independently. Federated: interconnected providers with shared standards for seamless workload migration.' },
-
-  // Unit 2
-  { cat: 'u2', q: 'Type 1 vs Type 2 hypervisor – which is more secure?', a: 'Type 1 (bare-metal): runs directly on hardware, no host OS, more secure. Examples: KVM, ESXi. Type 2 (hosted): runs on OS, less secure. Examples: VirtualBox.' },
-  { cat: 'u2', q: 'What is KVM?', a: 'Kernel-based Virtual Machine – a Type 1 hypervisor built into the Linux kernel. Uses QEMU for I/O emulation and libvirt for management.' },
-  { cat: 'u2', q: 'What is QEMU?', a: 'Quick EMUlator – handles I/O device emulation. Works with KVM: KVM handles CPU/memory virtualization, QEMU handles device I/O.' },
-  { cat: 'u2', q: 'What is LibVirt?', a: 'Open-source API for managing multiple hypervisors (KVM, QEMU, Xen) through one interface. Key CLI: virsh list, start, shutdown, define, destroy.' },
-  { cat: 'u2', q: 'Container vs VM – key differences?', a: 'Container: shared kernel, MBs size, seconds startup, process-level isolation. VM: own OS, GBs size, minutes startup, full hardware isolation.' },
-  { cat: 'u2', q: 'Docker Architecture?', a: 'Client (CLI) → REST API → Docker Daemon (dockerd) → Registry (Docker Hub). Objects: Image (template), Container (running instance), Volume, Network.' },
-  { cat: 'u2', q: 'What are C-groups?', a: 'Control Groups – Linux kernel feature to limit CPU, memory, and I/O usage for a group of processes. Core mechanism used by Docker for resource limits.' },
-  { cat: 'u2', q: 'AWS EC2, EBS, S3 – what is each?', a: 'EC2 = virtual servers (compute). EBS = block storage (virtual hard drive attached to EC2). S3 = object storage (files, backups, static sites).' },
-  { cat: 'u2', q: 'KVM vs VirtualBox?', a: 'KVM: Type 1, Linux only, near-native performance, production use. VirtualBox: Type 2, cross-platform (Win/Mac/Linux), easier GUI, dev/testing use.' },
-  { cat: 'u2', q: 'What is VM migration?', a: 'Moving a VM from one host to another. Live migration = no downtime (memory pages copied while running). Cold migration = VM powered off first.' },
-
-  // Unit 3
-  { cat: 'u3', q: 'SQL vs NoSQL – key difference?', a: 'SQL: fixed schema, tables, ACID, vertical scaling. NoSQL: flexible schema (documents/key-value), BASE, horizontal scaling. Use NoSQL for big data.' },
-  { cat: 'u3', q: 'MongoDB CRUD – four operations?', a: 'Create: insertOne({}) | Read: find({}) | Update: updateOne({filter},{$set:{field:val}}) | Delete: deleteOne({filter})' },
-  { cat: 'u3', q: 'Map-Reduce – explain the 3 phases?', a: 'Map: split input into key-value pairs. Shuffle: group all values with same key. Reduce: aggregate values per key. Example: Word Count.' },
-  { cat: 'u3', q: 'HDFS NameNode vs DataNode?', a: 'NameNode = metadata (block locations, directory structure). DataNode = actual data blocks. Default block = 128MB. Replication = 3×.' },
-  { cat: 'u3', q: 'CloudSim – what is a Cloudlet?', a: 'A Cloudlet is a unit of work/task in CloudSim. Has length (MIPS), file size, output size. Submitted by user via DatacenterBroker to run on a VM.' },
-  { cat: 'u3', q: 'Big Data 5 V\'s?', a: 'Volume (how much), Velocity (how fast), Variety (types: structured/unstructured), Veracity (quality), Value (usefulness).' },
-  { cat: 'u3', q: 'Value of 1 Petabyte?', a: '1 PB = 1,024 TB = 1,048,576 GB ≈ 1 billion MB. About 250,000 DVDs of data.' },
-  { cat: 'u3', q: 'What is velocity in Big Data?', a: 'Speed at which data is generated and must be processed. Example: Twitter 500M tweets/day, stock market thousands of trades/second. Requires real-time processing (Kafka, Spark).' },
-
-  // Unit 4
-  { cat: 'u4', q: 'SOA – 6 key characteristics?', a: 'Loose coupling, Reusability, Interoperability, Abstraction, Discoverability (UDDI), Composability.' },
-  { cat: 'u4', q: 'SOAP vs REST – main differences?', a: 'SOAP: protocol, XML only, WS-Security, stateful, enterprise. REST: architectural style, JSON/XML/etc, HTTPS+OAuth, stateless, lightweight web APIs.' },
-  { cat: 'u4', q: 'What is WSDL?', a: 'Web Services Description Language – XML document describing a web service: operations available, input/output formats, endpoint URL, and transport protocol.' },
-  { cat: 'u4', q: 'What is UDDI?', a: 'Universal Description Discovery Integration – a registry/directory where service providers publish their WSDL and consumers discover services. Like a "Yellow Pages" for web services.' },
-  { cat: 'u4', q: 'HTTP Methods – GET, POST, PUT, DELETE?', a: 'GET = read. POST = create. PUT = replace entire resource. PATCH = partial update. DELETE = remove. GET/PUT/DELETE are idempotent.' },
-
-  // Unit 5
-  { cat: 'u5', q: 'IAM root user vs IAM user?', a: 'Root: full unrestricted access, created with account. IAM User: restricted by policies. Best practice: never use root for daily tasks; use least-privilege IAM users.' },
-  { cat: 'u5', q: 'Security Group vs NACL?', a: 'Security Group: instance level, stateful (auto-allows return), allow rules only. NACL: subnet level, stateless (must allow return separately), allow + deny rules.' },
-  { cat: 'u5', q: 'Data Privacy by Design – first 3 principles?', a: '1. Proactive (prevent, not react) 2. Privacy as default (automatic protection) 3. Privacy embedded into design (not bolt-on). Total 7 principles. Required by GDPR.' },
-  { cat: 'u5', q: 'Authentication vs Authorization?', a: 'Authentication = "Who are you?" (login/biometrics). Authorization = "What can you do?" (permissions). Auth happens first, then authz.' },
-  { cat: 'u5', q: 'Why is encryption needed in cloud?', a: 'Protects data in transit (TLS) and at rest. Prevents unauthorized access even if hardware breached. Multi-tenancy risk. Regulatory compliance (GDPR, HIPAA).' },
-  { cat: 'u5', q: 'AWS S3 encryption types?', a: 'SSE-S3: AWS manages keys. SSE-KMS: KMS manages keys (more control, audit trail). SSE-C: you manage your own keys. Client-side: you encrypt before uploading.' },
-
-  // Unit 6
-  { cat: 'u6', q: 'What is serverless computing?', a: 'Write and deploy functions without managing servers. Cloud auto-provisions, scales (even to zero), and manages infrastructure. Pay per execution. AWS Lambda, Google Cloud Functions.' },
-  { cat: 'u6', q: 'What is DevOps?', a: 'Culture combining Development + Operations. In cloud: CI/CD pipelines, Infrastructure as Code (Terraform), container orchestration (Kubernetes), and automated monitoring.' },
-  { cat: 'u6', q: 'AI in Cloud?', a: 'ML as a Service – AWS SageMaker, Google Vertex AI, Azure ML. Train, deploy, and scale ML models without owning hardware. Pay per compute used.' },
-  { cat: 'u6', q: 'Edge Computing vs Cloud Computing?', a: 'Edge: process data near source (IoT device), low latency, limited compute. Cloud: process in remote data centers, high latency, unlimited compute. Often used together.' },
-
-  // Practicals
-  { cat: 'prac', q: 'virsh commands – list 5 essential ones?', a: 'virsh list --all | virsh start NAME | virsh shutdown NAME | virsh define vm.xml | virsh destroy NAME | virsh suspend NAME | virsh resume NAME' },
-  { cat: 'prac', q: 'Dockerfile – what does FROM, RUN, CMD do?', a: 'FROM: base image. RUN: execute command during image build. CMD: default command when container starts. COPY: copy files. EXPOSE: document port. WORKDIR: set working directory.' },
-  { cat: 'prac', q: 'MongoDB – how to insert and find documents?', a: 'Insert: db.collection.insertOne({name:"Ali", age:21}) | Find all: db.collection.find() | Find with filter: db.collection.find({age:{$gt:18}})' },
-  { cat: 'prac', q: 'Hadoop – how to upload a file to HDFS?', a: 'hdfs dfs -mkdir /mydir | hdfs dfs -put localfile.txt /mydir | hdfs dfs -ls /mydir | hdfs dfs -cat /mydir/localfile.txt' },
-  { cat: 'prac', q: 'CloudSim – name the 5 main components?', a: 'Datacenter (physical infra), Host (physical server), VM (virtual machine), Cloudlet (task/job), DatacenterBroker (matches cloudlets to VMs).' },
-  { cat: 'prac', q: 'AES vs RSA encryption?', a: 'AES: symmetric (same key), fast, used for bulk data encryption. RSA: asymmetric (public+private key pair), slower, used for key exchange and digital signatures.' },
-  { cat: 'prac', q: 'How to connect to an EC2 instance?', a: 'ssh -i keypair.pem ubuntu@<public-ip> | Must have correct key pair, security group must allow SSH (port 22) from your IP.' },
-  { cat: 'prac', q: 'REST vs SOAP – one-line viva answer?', a: 'REST = lightweight stateless API using HTTP + JSON, for web/mobile. SOAP = strict XML protocol with built-in security (WS-Security), for enterprise/banking.' },
+  { cat: 'virt', q: 'What is virtualization?', a: 'Creating a software-based (virtual) version of hardware, OS, storage, or networks. A hypervisor enables multiple VMs to run on one physical machine.' },
+  { cat: 'virt', q: 'Is JVM a virtual machine?', a: 'Yes, but a process VM (not system VM). It runs Java bytecode, not a full OS.' },
+  { cat: 'virt', q: 'Is Java platform independent?', a: 'Yes! Java code compiles to bytecode — "Write Once, Run Anywhere." But the JVM itself is platform dependent.' },
+  { cat: 'virt', q: 'Type 1 vs Type 2 hypervisor — which is more secure?', a: 'Type 1 (bare-metal) is more secure. It runs directly on hardware with no host OS layer, reducing the attack surface. Examples: KVM, ESXi.' },
+  { cat: 'virt', q: 'What is KVM?', a: 'Kernel-based Virtual Machine. A Type 1 hypervisor built into the Linux kernel. Uses QEMU for device emulation and libvirt for management.' },
+  { cat: 'virt', q: 'What is QEMU?', a: 'Quick EMUlator — an open-source machine emulator. Works with KVM for hardware virtualization (KVM handles CPU/RAM, QEMU handles I/O devices).' },
+  { cat: 'virt', q: 'What is LibVirt?', a: 'An open-source API toolkit for managing virtualization platforms (KVM, QEMU, Xen). Key commands: virsh list, virsh start, virsh shutdown, virsh define.' },
+  { cat: 'virt', q: 'What is CloudSim?', a: 'A simulation toolkit for modeling cloud computing environments. Used to test scheduling algorithms and resource allocation without real infrastructure.' },
+  { cat: 'virt', q: 'What are C-groups?', a: 'Control Groups — a Linux kernel feature to limit, account for, and isolate resource usage (CPU, memory, I/O) for a group of processes. Used in containers.' },
+  { cat: 'virt', q: 'What is VM migration?', a: 'Moving a running VM from one physical host to another. Live migration (no downtime) vs cold migration (VM powered off). Used for load balancing and maintenance.' },
+  { cat: 'cloud', q: 'Difference between IaaS, PaaS, SaaS?', a: 'IaaS: you manage OS+apps (AWS EC2). PaaS: you manage apps only (Heroku). SaaS: you just use it (Gmail). More layers = more vendor control.' },
+  { cat: 'cloud', q: 'Who has more control in IaaS vs SaaS?', a: 'IaaS → user has most control (manages OS, runtime, apps). SaaS → vendor has most control (user only interacts with the app UI).' },
+  { cat: 'cloud', q: 'Shortcomings of PaaS?', a: '1. Vendor lock-in 2. Limited infrastructure control 3. Runtime restrictions 4. Data security concerns 5. Less customization than IaaS.' },
+  { cat: 'cloud', q: '5 Essential characteristics of cloud (NIST)?', a: '1. On-demand self-service 2. Broad network access 3. Resource pooling 4. Rapid elasticity 5. Measured service (pay-as-you-go).' },
+  { cat: 'cloud', q: 'What is multi-tenancy?', a: 'Multiple customers share the same cloud infrastructure but are logically isolated. Example: Gmail serves millions on shared servers — you can\'t see others\' emails.' },
+  { cat: 'cloud', q: 'What is cloud bursting?', a: 'A hybrid cloud technique where a private cloud "bursts" into a public cloud when demand exceeds private capacity. Handles traffic spikes cost-effectively.' },
+  { cat: 'cloud', q: 'What is a federated cloud?', a: 'Multiple cloud providers interconnected to share resources and services. Enables workloads to move across different cloud environments seamlessly.' },
+  { cat: 'scale', q: 'Horizontal vs Vertical scaling — which is cheaper?', a: 'Horizontal (scale out) = add more machines — cheaper (commodity hardware, no downtime). Vertical (scale up) = upgrade one machine — expensive, has hardware ceiling.' },
+  { cat: 'scale', q: 'What is the advantage of horizontal scaling?', a: 'No downtime, theoretically unlimited scale, uses cheap commodity servers, better fault tolerance (no single point of failure).' },
+  { cat: 'sec', q: 'Why is encryption needed in cloud?', a: 'Protects data in transit (HTTPS/TLS) and at rest. Prevents unauthorized access even if hardware is breached. Required for compliance (GDPR, HIPAA). Mitigates multi-tenancy risks.' },
+  { cat: 'sec', q: 'Authentication vs Authorization?', a: 'Authentication = "Who are you?" (login, biometrics). Authorization = "What can you do?" (permissions, roles). Auth happens first, then authz.' },
+  { cat: 'sec', q: 'Two types of security attacks in cloud?', a: '1. DoS/DDoS — overwhelms server with traffic. 2. Man-in-the-Middle — intercepts communication. Countermeasures: firewalls, encryption, rate limiting, IDS/IPS.' },
+  { cat: 'sec', q: 'SOAP vs REST?', a: 'SOAP: protocol, XML only, strict, more secure (WS-Security), used in banking. REST: architectural style, flexible formats (JSON/XML), faster, stateless, used in web APIs.' },
+  { cat: 'sec', q: 'AWS encryption in S3?', a: 'SSE-S3: AWS manages keys. SSE-KMS: AWS KMS manages keys (more control). SSE-C: you manage your own keys. Client-side: encrypt before uploading.' },
+  { cat: 'res', q: 'What is resource optimization in cloud?', a: 'Efficiently allocating CPU, memory, storage, and network to maximize utilization, minimize cost, and reduce energy consumption.' },
+  { cat: 'res', q: 'Name algorithms for resource optimization in cloud?', a: '1. First Fit / Best Fit (bin packing) 2. Round Robin 3. Genetic Algorithm 4. PSO (Particle Swarm) 5. FCFS / Throttled scheduling.' },
+  { cat: 'res', q: 'Who decides how cloud resources are optimized?', a: 'The cloud resource manager/scheduler (automated system) decides, based on policies defined by cloud administrators and SLA (Service Level Agreement) requirements.' },
+  { cat: 'big', q: 'What is Big Data?', a: 'Extremely large datasets characterized by 5 V\'s: Volume, Velocity, Variety, Veracity, Value — too large/fast for traditional processing tools.' },
+  { cat: 'big', q: 'Value of 1 Petabyte?', a: '1 PB = 1,024 TB = 1,048,576 GB = about 1 billion MB. Equivalent to ~250,000 DVDs of data.' },
+  { cat: 'big', q: 'Explain Velocity in Big Data with example?', a: 'Velocity = speed of data generation and processing. Example: Twitter generates 500M+ tweets/day; stock markets process thousands of trades per second. Requires real-time stream processing (Kafka, Spark Streaming).' },
+  { cat: 'big', q: 'How does cloud support Big Data?', a: 'Cloud provides on-demand scalable storage (S3, HDFS), elastic compute for processing (EMR, Dataproc), managed Hadoop/Spark clusters, and pay-per-use pricing — ideal for variable Big Data workloads.' },
 ];
 
-// ── STATE ──
 let filteredCards = [...ALL_CARDS];
 let currentIdx = 0;
 let seenSet = new Set();
 
-// ── SECTION TOTALS ──
-const sectionTotals = { prac: 10, u1: 8, u2: 10, u3: 9, u4: 7, u5: 8, u6: 6 };
-const grandTotal = Object.values(sectionTotals).reduce((a, b) => a + b, 0);
-
-// ── PROGRESS ──
-function updateProgress() {
-  let grandDone = 0;
-  Object.keys(sectionTotals).forEach(sec => {
-    const checks = document.querySelectorAll(`.todo-check[data-section="${sec}"]`);
-    const done = [...checks].filter(c => c.checked).length;
-    const total = sectionTotals[sec];
-    const pct = total ? (done / total * 100) : 0;
-    const bar = document.querySelector(`#progress-${sec} .progress-bar-fill`);
-    if (bar) bar.style.width = pct + '%';
-    const label = document.getElementById(`label-${sec}`);
-    if (label) label.textContent = `${done} / ${total}`;
-    grandDone += done;
-  });
-  const grandPct = grandTotal ? (grandDone / grandTotal * 100) : 0;
-  document.getElementById('overall-bar').style.width = grandPct + '%';
-  document.getElementById('overall-count').textContent = `${grandDone} / ${grandTotal} done`;
-}
-
-// ── TABS ──
-function switchTab(tab) {
-  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
-  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-  document.getElementById('tab-' + tab).classList.add('active');
-  document.querySelector('[data-tab="' + tab + '"]').classList.add('active');
-}
-
-// ── Q&A TOGGLE ──
-function toggleQA(el) {
-  const item = el.closest('.qa-item');
-  const isOpen = item.classList.contains('open');
-  document.querySelectorAll('.qa-item').forEach(i => i.classList.remove('open'));
-  if (!isOpen) item.classList.add('open');
-}
-
-// ── REVISION TOGGLE ──
-function toggleRevUnit(el) {
-  el.classList.toggle('open');
-}
-
-// ── FLASHCARDS ──
 function filterFlashcards() {
   const val = document.getElementById('fc-filter').value;
   filteredCards = val === 'all' ? [...ALL_CARDS] : ALL_CARDS.filter(c => c.cat === val);
@@ -1631,7 +1005,7 @@ function renderCard() {
 
 function renderDots() {
   const container = document.getElementById('fc-dots');
-  const max = Math.min(filteredCards.length, 25);
+  const max = Math.min(filteredCards.length, 20);
   container.innerHTML = '';
   for (let i = 0; i < max; i++) {
     const d = document.createElement('div');
@@ -1667,7 +1041,41 @@ function shuffleCards() {
   renderCard();
 }
 
-// ── INIT ──
+function switchTab(tab) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + tab).classList.add('active');
+  document.querySelector('[data-tab="' + tab + '"]').classList.add('active');
+}
+
+function toggleQA(el) {
+  const item = el.closest('.qa-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.qa-item').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+const sectionTotals = { virt: 13, cloud: 5, concepts: 6, scale: 2, sec: 6, res: 3, dep: 1, big: 4 };
+const grandTotal = Object.values(sectionTotals).reduce((a, b) => a + b, 0);
+
+function updateProgress() {
+  let grandDone = 0;
+  Object.keys(sectionTotals).forEach(sec => {
+    const checks = document.querySelectorAll(`.todo-check[data-section="${sec}"]`);
+    const done = [...checks].filter(c => c.checked).length;
+    const total = sectionTotals[sec];
+    const pct = total ? (done / total * 100) : 0;
+    const bar = document.querySelector(`#progress-${sec} .progress-bar-fill`);
+    if (bar) bar.style.width = pct + '%';
+    const label = document.getElementById(`label-${sec}`);
+    if (label) label.textContent = `${done} / ${total}`;
+    grandDone += done;
+  });
+  const grandPct = grandTotal ? (grandDone / grandTotal * 100) : 0;
+  document.getElementById('overall-bar').style.width = grandPct + '%';
+  document.getElementById('overall-count').textContent = `${grandDone} / ${grandTotal} done`;
+}
+
 renderCard();
 updateProgress();
 </script>
